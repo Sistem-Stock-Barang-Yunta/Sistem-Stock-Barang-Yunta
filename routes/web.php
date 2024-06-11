@@ -17,7 +17,3 @@ Route::get('/admin/crud-tambah', function () {
 Route::get('/admin/crud-edit', function () {
     return view('admin.edit');
 });
-
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-});
