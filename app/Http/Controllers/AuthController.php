@@ -45,24 +45,35 @@ class AuthController extends Controller
     
         return redirect()->route('login')->with('success', 'Registration successful. Please login.');
     }
+
+
+    
     public function login(Request $request)
     {
+        // Validasi input
         $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
         ]);
     
+        // Cek kredensial pengguna
         if (!Auth::attempt($request->only('email', 'password'))) {
-            return response()->json(['message' => 'Unauthorized'], 401);
+            return response()->json(['message' => 'USER GA ADAAAAAAAAAAAAA'], 401);
         }
     
+        // Ambil pengguna yang sedang login
         $user = Auth::user();
     
+        // Arahkan berdasarkan peran pengguna
         if ($user->role === 'staff') {
-            return view('frontend.staff.dashboard');
+            return view('staff.dashboard');
+        }
+
+        if ($user->role === 'admin') {
+            return view('admin.dashboard');
         }
     
+        // Jika peran lain, arahkan ke halaman default
         return response()->json(['message' => 'User logged in successfully', 'user' => $user], 200);
     }
-    
 }
