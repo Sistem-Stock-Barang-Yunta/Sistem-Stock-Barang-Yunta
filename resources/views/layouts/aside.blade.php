@@ -33,6 +33,12 @@
         <li class="{{ Str::startsWith(Request::path(), 'admin') ? 'active' : '' }}"><a class="nav-link"
                 href="/admin"><i class="fas fa-home"></i>
                 <span>Dashboard Admin</span></a></li>
+        <li class="active"><a class="nav-link" href="/manajemen-staff"><i class="fas fa-home"></i>
+                <span>Manajemen Staff</span></a></li>
+        <li class="active"><a class="nav-link" href="/stockin"><i class="fas fa-home"></i>
+                <span>Stock In</span></a></li>
+        <li class="active"><a class="nav-link" href="/stokout"><i class="fas fa-home"></i>
+                <span>Stock Out</span></a></li>
         <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i>
                 <span>Article</span></a>

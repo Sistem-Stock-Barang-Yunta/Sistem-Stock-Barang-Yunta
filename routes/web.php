@@ -25,3 +25,13 @@ Route::get('/admin/crud-tambah', function () {
 Route::get('/admin/crud-edit', function () {
     return view('admin.edit');
 });
+
+Route::get('/manajemen-staff', function () {
+    return view('admin.manajemen-staff');
+});
+Route::get('stokout', function () {
+    return view('admin.stokout');
+});
+Route::get('stockin', function () {
+    return view('admin.stockin');
+});
