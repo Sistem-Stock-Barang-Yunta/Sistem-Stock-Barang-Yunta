@@ -1,11 +1,15 @@
-<x-layout>
+@extends('layouts.parent')
 
-    @section('location')
-        <div class="breadcrumb-item">Dashboard baru
-        </div>
-    @endsection
-    
-    @section('content')
+@section('title', 'Admin')
+
+@section('main', 'Dashboard')
+
+@section('location')
+    <div class="breadcrumb-item">Dashboard Admin
+    </div>
+@endsection
+
+@section('content')
     <div class="card-body">
         {{-- card --}}
         <div class="row">
@@ -47,22 +51,25 @@
             </div>
         </div>
         {{-- card end --}}
-    
+
         {{-- table --}}
         <div class="table-responsive">
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+                        aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                            class="fas fa-search"></i></button>
                 </div>
             </form>
             <h4>Tabel Data Barang</h4>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                
-                <form   form action="#" method="POST">
+
+                <form form action="#" method="POST">
                     <input type="hidden" value="#" name="id">
                     <a href="/admin/crud-tambah" class="btn btn-success bi bi-file-earmark-plus-fill"> Tambah Data</a>
-                    <button type="button" class="btn btn-primary  bi bi-file-earmark-arrow-down position-relative"> Unduh data</button>
+                    <button type="button" class="btn btn-primary  bi bi-file-earmark-arrow-down position-relative"> Unduh
+                        data</button>
                 </form>
             </div>
             <table class="table table-hover">
@@ -75,7 +82,7 @@
                     <th>Tanggal ditambahkan</th>
                     <th>Aksi</th>
                 </tr>
-    
+
                 <tr>
                     <td>1</td>
                     <td>Jeruk</td>
@@ -85,10 +92,10 @@
                     <td>00-00-0000</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a href="/admin/crud-edit" class="btn btn-success bi bi-pencil-square"></a>
+                            <a href="/admin/crud-edit" class="btn btn-success fa fa-edit"></a>
                             <form action="" method="POST">
                                 <input type="hidden" value="#" name="id">
-                                <button class="btn btn-danger bi bi-trash3"></button>
+                                <button class="btn btn-danger fa fa-trash"></button>
                             </form>
                         </div>
                     </td>
@@ -102,10 +109,10 @@
                     <td>00-00-0000</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a href="#" class="btn btn-success bi bi-pencil-square"></a>
+                            <a href="#" class="btn btn-success fa fa-edit"></a>
                             <form action="" method="GET">
                                 <input type="hidden" value="#" name="id">
-                                <button class="btn btn-danger bi bi-trash3"></button>
+                                <button class="btn btn-danger fa fa-trash"></button>
                             </form>
                         </div>
                     </td>
@@ -114,4 +121,5 @@
         </div>
         {{-- table end --}}
     </div>
-    </x-layout>
+
+@endsection

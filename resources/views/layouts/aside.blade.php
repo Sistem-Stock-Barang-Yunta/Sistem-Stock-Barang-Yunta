@@ -27,8 +27,12 @@
                 </ul>
             </li>
         @endif
-        <li class="active"><a class="nav-link" href="/"><i class="fas fa-home"></i>
+        <li class="{{ Request::path() == '/' ? 'active' : '' }}"><a class="nav-link" href="/"><i
+                    class="fas fa-home"></i>
                 <span>Dashboard</span></a></li>
+        <li class="{{ Str::startsWith(Request::path(), 'admin') ? 'active' : '' }}"><a class="nav-link"
+                href="/admin"><i class="fas fa-home"></i>
+                <span>Dashboard Admin</span></a></li>
         <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i>
                 <span>Article</span></a>
