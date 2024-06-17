@@ -15,23 +15,23 @@ Route::get('/register', function () {
 });
 
 Route::get('/admin', function () {
-    return view('admin.admin');
+    return view('frontend.admin.admin');
 });
 
 Route::get('/admin/crud-tambah', function () {
-    return view('admin.create');
+    return view('frontend.admin.create');
 });
 
 Route::get('/admin/crud-edit', function () {
-    return view('admin.edit');
+    return view('frontend.admin.edit');
 });
 
 Route::get('/manajemen-staff', function () {
-    return view('admin.manajemen-staff');
+    return view('frontend.admin.manajemen-staff');
 });
-Route::get('stokout', function () {
-    return view('admin.stokout');
+Route::get('stockout', function () {
+    return view('frontend.admin.stokout');
 });
 Route::get('stockin', function () {
-    return view('admin.stockin');
+    return view('frontend.admin.stockin');
 });

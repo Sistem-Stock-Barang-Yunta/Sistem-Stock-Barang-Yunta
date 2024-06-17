@@ -1,11 +1,11 @@
 @extends('layouts.parent')
 
-@section('title', 'admin')
+@section('title', 'Admin')
 
-@section('main', 'Stock Out')
+@section('main', 'Stock In')
 
 @section('location')
-    <div class="breadcrumb-item">Stok Out</div>
+    <div class="breadcrumb-item">Stock In</div>
 @endsection
 
 @section('content')

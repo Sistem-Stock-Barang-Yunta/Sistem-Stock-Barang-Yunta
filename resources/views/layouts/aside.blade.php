@@ -1,9 +1,9 @@
 <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-        <a href="index.html">Stisla</a>
+        <a href="/">Manajemen Stock</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
-        <a href="index.html">St</a>
+        <a href="/">MS</a>
     </div>
     <ul class="sidebar-menu">
         @if (Auth::check() && Auth::user()->role == 'admin')
@@ -33,18 +33,17 @@
         <li class="{{ Str::startsWith(Request::path(), 'admin') ? 'active' : '' }}"><a class="nav-link"
                 href="/admin"><i class="fas fa-home"></i>
                 <span>Dashboard Admin</span></a></li>
-        <li class="active"><a class="nav-link" href="/manajemen-staff"><i class="fas fa-home"></i>
+        <li class="{{ Request::path() == 'manajemen-staff' ? 'active' : '' }}"><a class="nav-link"
+                href="/manajemen-staff"><i class="fas fa-user"></i>
                 <span>Manajemen Staff</span></a></li>
-        <li class="active"><a class="nav-link" href="/stockin"><i class="fas fa-home"></i>
-                <span>Stock In</span></a></li>
-        <li class="active"><a class="nav-link" href="/stokout"><i class="fas fa-home"></i>
-                <span>Stock Out</span></a></li>
-        <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i>
-                <span>Article</span></a>
+        <li class="nav-item dropdown {{ Str::startsWith(Request::path(), 'stock') ? 'active' : '' }}">
+            <a href="#" class="nav-link has-dropdown"><i class="fas fa-box"></i>
+                <span>Stock</span></a>
             <ul class="dropdown-menu">
-                <li><a class="nav-link" href="/admin/article">All Data</a></li>
-                <li><a class="nav-link" href="/admin/article/create">Create Data</a></li>
+                <li class="{{ Request::path() == 'stockin' ? 'active' : '' }}"><a class="nav-link" href="/stockin">Stock
+                        In</a></li>
+                <li class="{{ Request::path() == 'stockout' ? 'active' : '' }}"><a class="nav-link"
+                        href="/stockout">Stock Out</a></li>
             </ul>
         </li>
 
