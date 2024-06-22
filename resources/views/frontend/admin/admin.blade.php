@@ -17,7 +17,7 @@
                 <div class="card bg-primary text-white mb-4">
                     <div class="card-body">Supplier</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">View Detail</a>
+                        <a class="small text-white stretched-link" href="/admin/supplier">View Detail</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
@@ -83,6 +83,7 @@
                     <th>Nama</th>
                     <th>Deskripsi</th>
                     <th>SKU</th>
+                    <th>Kategori</th>
                     <th>Gambar</th>
                     <th>Tanggal ditambahkan</th>
                     <th>Aksi</th>
@@ -93,7 +94,8 @@
                     <td>Jeruk</td>
                     <td>Lorem Ipsum</td>
                     <td>JERUKMANIS-SEDANG</td>
-                    <td>https://unsplash.com/photos/orange-fruit-U1iYwZ8Dx7k</td>
+                    <td>Buah</td>
+                    <td></td>
                     <td>00-00-0000</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
@@ -110,7 +112,8 @@
                     <td>Kangkung</td>
                     <td>Lorem Ipsum dolor</td>
                     <td>KANGKUNG-IKAT</td>
-                    <td>https://www.shutterstock.com/image-photo/chinese-water-spinach-photographed-white-background-2337726353</td>
+                    <td>Sayur</td>
+                    <td></td>
                     <td>00-00-0000</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
