@@ -23,30 +23,24 @@
                                     <input type="text" class="form-control" placeholder="Masukkan Nama Barang"
                                         name="nama">
                                     <div class="form-outline" data-mdb-input-init>
-                                        <label class="form-label" for="form12">Kategori</label>
+                                        <label class="form-label" for="form12">Deskripsi</label>
                                         <input type="text" id="form12" class="form-control"
-                                            placeholder="Pilih Kategori" name="kategori">
-                                    </div>
-                                    <div class="form-outline" data-mdb-input-init>
-                                        <label class="form-label" for="form12">Supplier</label>
-                                        <input type="text" id="form12" class="form-control"
-                                            placeholder="Masukkan Nama Supplier" name="supplier">
+                                            placeholder="Masukkan Deskripsi Barang" name="deskripsi">
                                     </div>
                                     <div class="form-outline" data-mdb-input-init>
                                         <label class="form-label" for="form12">SKU</label>
                                         <input type="text" id="form12" class="form-control"
-                                            placeholder="Masukkan kode SKU" name="sku">
+                                            placeholder="Masukkan Kode SKU" name="supplier">
                                     </div>
                                     <div class="form-outline" data-mdb-input-init>
-                                        <label class="form-label" for="form12">Stock Barang</label>
+                                        <label class="form-label" for="form12">Kategori</label>
                                         <input type="text" id="form12" class="form-control"
-                                            placeholder="Jumlah Barang" name="stock">
+                                            placeholder="Masukkan Kategori" name="kategori">
                                     </div>
-                                    <br>
                                     <label class="form-label" for="customFile">Pilih Gambar</label>
                                     <input type="file" class="form-control" accept="gambar/*" name="gambar"
                                         id="gambar">
-                                    <br>
+
                                     <button class="btn btn-success" type="submit">Submit</button>
                                     <a href="#" class="btn btn-primary">Kembali</a>
                                 </form>
