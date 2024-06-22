@@ -81,9 +81,9 @@
                 <tr>
                     <th>#</th>
                     <th>Nama</th>
-                    <th>Kategori</th>
-                    <th>Supplier</th>
-                    <th>Stock Barang</th>
+                    <th>Deskripsi</th>
+                    <th>SKU</th>
+                    <th>Gambar</th>
                     <th>Tanggal ditambahkan</th>
                     <th>Aksi</th>
                 </tr>
@@ -91,9 +91,9 @@
                 <tr>
                     <td>1</td>
                     <td>Jeruk</td>
-                    <td>Buah</td>
-                    <td>PT. Indofresh</td>
-                    <td>500 Kg</td>
+                    <td>Lorem Ipsum</td>
+                    <td>JERUKMANIS-SEDANG</td>
+                    <td>https://unsplash.com/photos/orange-fruit-U1iYwZ8Dx7k</td>
                     <td>00-00-0000</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
@@ -108,9 +108,9 @@
                 <tr>
                     <td>2</td>
                     <td>Kangkung</td>
-                    <td>Sayur</td>
-                    <td>PT. Sayurmayur</td>
-                    <td>500 Kg</td>
+                    <td>Lorem Ipsum dolor</td>
+                    <td>KANGKUNG-IKAT</td>
+                    <td>https://www.shutterstock.com/image-photo/chinese-water-spinach-photographed-white-background-2337726353</td>
                     <td>00-00-0000</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
