@@ -24,25 +24,20 @@
                                     <input type="text" class="form-control" placeholder="Masukkan Nama Barang"
                                         name="nama">
                                     <div class="form-outline" data-mdb-input-init>
+                                        <label class="form-label" for="form12">Deskripsi</label>
+                                        <input type="text" id="form12" class="form-control"
+                                            placeholder="Masukkan Deskripsi Barang" name="deskripsi">
+                                    </div>
+                                    <div class="form-outline" data-mdb-input-init>
+                                        <label class="form-label" for="form12">SKU</label>
+                                        <input type="text" id="form12" class="form-control"
+                                            placeholder="Masukkan Kode SKU" name="supplier">
+                                    </div>
+                                    <div class="form-outline" data-mdb-input-init>
                                         <label class="form-label" for="form12">Kategori</label>
                                         <input type="text" id="form12" class="form-control"
-                                            placeholder="Pilih Kategori" name="kategori">
+                                            placeholder="Masukkan Kategori" name="kategori">
                                     </div>
-                                    <div class="form-outline" data-mdb-input-init>
-                                        <label class="form-label" for="form12">Supplier</label>
-                                        <input type="text" id="form12" class="form-control"
-                                            placeholder="Masukkan Nama Supplier" name="supplier">
-                                    </div>
-                                    {{-- <div class="form-outline" data-mdb-input-init>
-                                <label class="form-label" for="form12">SKU</label>
-                                <input type="text" id="form12" class="form-control" placeholder="Masukkan kode SKU" name="sku">
-                            </div> --}}
-                                    <div class="form-outline" data-mdb-input-init>
-                                        <label class="form-label" for="form12">Stock Barang</label>
-                                        <input type="text" id="form12" class="form-control"
-                                            placeholder="Jumlah Barang" name="stock">
-                                    </div>
-                                    <br>
                                     <label class="form-label" for="customFile">Pilih Gambar</label>
                                     <input type="file" class="form-control" accept="gambar/*" name="gambar"
                                         id="gambar">
