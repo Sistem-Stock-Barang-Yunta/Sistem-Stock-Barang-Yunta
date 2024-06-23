@@ -35,3 +35,15 @@ Route::get('stockout', function () {
 Route::get('stockin', function () {
     return view('frontend.admin.stockin');
 });
+
+Route::get('/admin/supplier', function () {
+    return view('frontend.admin.supplier');
+});
+
+Route::get('/admin/create-supplier', function () {
+    return view('frontend.admin.supp-create');
+});
+
+Route::get('/admin/edit-supplier', function () {
+    return view('frontend.admin.supp-edit');
+});
