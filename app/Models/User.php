@@ -2,6 +2,10 @@
 
 namespace App\Models;
 
+<<<<<<< HEAD
+=======
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+>>>>>>> origin/FajarAngga
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -19,7 +23,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+<<<<<<< HEAD
         'role'
+=======
+        'role',
+>>>>>>> origin/FajarAngga
     ];
 
     /**
@@ -33,7 +41,11 @@ class User extends Authenticatable
     ];
 
     /**
+<<<<<<< HEAD
      * The attributes that should be cast.
+=======
+     * Get the attributes that should be cast.
+>>>>>>> origin/FajarAngga
      *
      * @return array<string, string>
      */
@@ -44,6 +56,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+<<<<<<< HEAD
 
     /**
      * Scope a query to only include staff users.
@@ -56,4 +69,6 @@ class User extends Authenticatable
         return $query->where('role', 'staf');
     }
     
+=======
+>>>>>>> origin/FajarAngga
 }
