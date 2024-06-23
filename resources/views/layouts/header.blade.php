@@ -135,7 +135,6 @@
                 </div>
             </div>
         </li>
-<<<<<<< HEAD
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
@@ -152,34 +151,15 @@
                 <a href="features-activities.html" class="dropdown-item has-icon">
                     <i class="fas fa-bolt"></i> Activities
                 </a>
-=======
-        <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <div class="d-sm-none d-lg-inline-block">Hi {{ Auth::user()->role }} {{ Auth::user()->name }}</div>
-        </a>
-            <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-title">Logged in {{ Auth::user()->created_at->diffForHumans() }}</div>
-                <a href="features-profile.html" class="dropdown-item has-icon">
-                    <i class="far fa-user"></i> Profile
-                </a>
-                <a href="#" class="dropdown-item has-icon">
-                    <i class="fas fa-bolt"></i> {{ ucfirst(Auth::user()->role) }}
-                </a>
-                
->>>>>>> origin/FajarAngga
                 <a href="features-settings.html" class="dropdown-item has-icon">
                     <i class="fas fa-cog"></i> Settings
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="{{ route('login') }}" class="dropdown-item has-icon text-danger">
                     <i class="fas fa-sign-out-alt"></i> Logout
-<<<<<<< HEAD
                 </a>
                 </div>
                 
-=======
-                </a>                
-            </div>
->>>>>>> origin/FajarAngga
         </li>
     </ul>
 </nav>

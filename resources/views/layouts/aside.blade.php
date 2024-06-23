@@ -1,17 +1,9 @@
 <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-<<<<<<< HEAD
         <a href="/">Manajemen Stock</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
         <a href="/">MS</a>
-=======
-        <img src="{{ 'https://www.gravatar.com/avatar/' . md5(strtolower(trim(Auth::user()->email))) . '?s=50&d=mp' }}" alt="Avatar" class="rounded-circle"><br
-        <a href="">{{ Auth::user()->name }}</a>
-    </div>
-    <div class="sidebar-brand sidebar-brand-sm">
-        <a href="index.html">St</a>
->>>>>>> origin/FajarAngga
     </div>
     <ul class="sidebar-menu">
         @if (Auth::check() && Auth::user()->role == 'admin')
@@ -35,7 +27,6 @@
                 </ul>
             </li>
         @endif
-<<<<<<< HEAD
         <li class="{{ Request::path() == '/' ? 'active' : '' }}"><a class="nav-link" href="/"><i
                     class="fas fa-home"></i>
                 <span>Dashboard</span></a></li>
@@ -53,16 +44,6 @@
                         In</a></li>
                 <li class="{{ Request::path() == 'stockout' ? 'active' : '' }}"><a class="nav-link"
                         href="/stockout">Stock Out</a></li>
-=======
-        <li class="active"><a class="nav-link" href="/"><i class="fas fa-home"></i>
-                <span>Dashboard</span></a></li>
-        <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i>
-                <span>Article</span></a>
-            <ul class="dropdown-menu">
-                <li><a class="nav-link" href="/admin/article">All Data</a></li>
-                <li><a class="nav-link" href="/admin/article/create">Create Data</a></li>
->>>>>>> origin/FajarAngga
             </ul>
         </li>
 
