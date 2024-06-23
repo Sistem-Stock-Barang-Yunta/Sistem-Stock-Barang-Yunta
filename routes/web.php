@@ -1,6 +1,5 @@
 <?php
 
-<<<<<<< HEAD
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
@@ -70,16 +69,3 @@ Route::get('/admin/crud-edit-item/{id}', [ItemController::class, 'edit'])->name(
 Route::put('/admin/crud-update-item/{id}', [ItemController::class, 'update'])->name('admin.crud-update-item');
 Route::delete('/admin/hapus-item/{id}', [ItemController::class, 'destroy'])->name('admin.hapus-item');
 
-=======
-use App\Http\Controllers\AuthController;
-use Illuminate\Support\Facades\Route;
-
-// Rute untuk tampilan login dan registrasi
-Route::get('/login', [AuthController::class, 'formlogin'])->name('login');
-Route::get('/register', [AuthController::class, 'formregister'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
-
-// Rute untuk proses login
-Route::post('/login', [AuthController::class, 'login']);
-
->>>>>>> origin/FajarAngga
