@@ -36,7 +36,6 @@ class ItemController extends Controller
             'nama' => 'required|string|max:255',
             'id_kategori' => 'required|exists:kategori,id_kategori',
             'sku' => 'required|string|max:255|unique:items,sku',
-            'stock' => 'required|integer|min:0',
             'description' => 'required|string|max:255', // Menambah validasi untuk deskripsi
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
@@ -52,7 +51,6 @@ class ItemController extends Controller
             'name' => $request->nama,
             'id_kategori' => $request->id_kategori,
             'sku' => $request->sku,
-            'stock' => $request->stock,
             'description' => $request->description, // Menambahkan 'description'
             'gambar' => $image,
         ]);
@@ -77,7 +75,6 @@ class ItemController extends Controller
         'nama' => 'required|string|max:255',
         'id_kategori' => 'required|exists:kategori,id_kategori',
         'sku' => 'required|string|max:255|unique:items,sku,'.$id,
-        'stock' => 'required|integer|min:0',
         'description' => 'nullable|string|max:255',
         'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
     ]);
@@ -98,7 +95,6 @@ class ItemController extends Controller
     $item->name = $request->nama;
     $item->id_kategori = $request->id_kategori;
     $item->sku = $request->sku;
-    $item->stock = $request->stock;
     $item->description = $request->description;
 
     $item->save();

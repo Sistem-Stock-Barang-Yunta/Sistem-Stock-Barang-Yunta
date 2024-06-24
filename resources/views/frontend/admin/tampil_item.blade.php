@@ -38,7 +38,6 @@
                         <th>Nama</th>
                         <th>Deskripsi</th>
                         <th>Kategori</th>
-                        <th>Stock Barang</th>
                         <th>SKU</th>
                         <th>Gambar</th>
                         <th>Tanggal ditambahkan</th>
@@ -52,7 +51,6 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->description }}</td>
                             <td>{{ $item->kategori->name }}</td>
-                            <td>{{ $item->stock }}</td>
                             <td>{{ $item->SKU }}</td>
                             <td><img src="{{ asset('storage/' . $item->gambar) }}" alt="Gambar {{ $item->name }}" width="50"></td>
                             <td>{{ $item->created_at }}</td>

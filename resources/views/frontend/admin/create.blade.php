@@ -36,10 +36,6 @@
                                         <label class="form-label" for="sku">SKU</label>
                                         <input type="text" id="sku" class="form-control" placeholder="Masukkan kode SKU" name="sku" required>
                                     </div>
-                                    <div class="form-outline" data-mdb-input-init>
-                                        <label class="form-label" for="stock">Stock Barang</label>
-                                        <input type="text" id="stock" class="form-control" placeholder="Jumlah Barang" name="stock" required>
-                                    </div>
                                     <br>
                                     <label class="form-label" for="customFile">Pilih Gambar</label>
                                     <input type="file" class="form-control" accept="image/*" name="gambar" id="gambar" required>

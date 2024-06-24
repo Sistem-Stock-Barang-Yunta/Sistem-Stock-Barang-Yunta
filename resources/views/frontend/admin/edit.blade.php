@@ -48,10 +48,6 @@
                                         <input type="text" id="form12" class="form-control" placeholder="Masukkan kode SKU" name="sku" value="{{ $item->SKU }}">
                                     </div>
                                     <div class="form-outline" data-mdb-input-init>
-                                        <label class="form-label" for="form12">Stock Barang</label>
-                                        <input type="text" id="form12" class="form-control" placeholder="Jumlah Barang" name="stock" value="{{ $item->stock }}">
-                                    </div>
-                                    <div class="form-outline" data-mdb-input-init>
                                         <label class="form-label" for="form12">Deskripsi</label>
                                         <input type="text" id="form12" class="form-control" placeholder="Masukkan Deskripsi Barang" name="description" value="{{ $item->description }}">
                                     </div>
