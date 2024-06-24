@@ -3,6 +3,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\StockInController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -12,9 +13,6 @@ Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
 
 Route::get('stockout', function () {
     return view('frontend.admin.stokout');
-});
-Route::get('stockin', function () {
-    return view('frontend.admin.stockin');
 });
 
 
@@ -64,3 +62,11 @@ Route::get('/admin/crud-edit-item/{id}', [ItemController::class, 'edit'])->name(
 Route::put('/admin/crud-update-item/{id}', [ItemController::class, 'update'])->name('admin.crud-update-item');
 Route::delete('/admin/hapus-item/{id}', [ItemController::class, 'destroy'])->name('admin.hapus-item');
 
+// Route stockIn
+
+Route::get('stockin', [StockInController::class, 'index'])->name('admin.stockin');
+Route::get('/admin/tambah-stockin', [StockInController::class, 'create'])->name('admin.tambah_stockin');
+Route::post('/admin/store_stockin', [StockInController::class, 'store'])->name('admin.store_stockin');
+Route::get('/admin/edit-stockin/{id}', [StockInController::class, 'edit'])->name('admin.edit_stockin');
+Route::put('/admin/edit-stockin/{id}', [StockInController::class, 'update']);
+Route::delete('/admin/hapus-stockin/{id}', [StockInController::class, 'destroy'])->name('admin.hapus_stockin');
