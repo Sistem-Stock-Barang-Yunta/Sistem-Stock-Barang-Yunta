@@ -26,8 +26,7 @@
                 <h4>Tabel Data Barang</h4>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <a href="{{ route('admin.crud-tambah') }}" class="btn btn-success bi bi-file-earmark-plus-fill"> Tambah Data</a>
-                    <button type="button" class="btn btn-primary bi bi-file-earmark-arrow-down position-relative">
-                        Unduh data
+                    <a href="{{ route('admin.generate_pdf') }}" class="btn btn-primary bi bi-file-earmark-arrow-down position-relative">Unduh data</a>
                     </button>
                 </div>
             </div>

@@ -73,10 +73,12 @@ Route::put('/admin/edit-stockin/{id}', [StockInController::class, 'update']);
 Route::delete('/admin/hapus-stockin/{id}', [StockInController::class, 'destroy'])->name('admin.hapus_stockin');
 
 // Route stockout
-
 Route::get('stockout', [StockoutController::class, 'index'])->name('admin.stockout');
 Route::get('/admin/tambah-stockout', [stockoutController::class, 'create'])->name('admin.tambah_stockout');
 Route::post('/admin/store_stockout', [stockoutController::class, 'store'])->name('admin.store_stockout');
 Route::get('/admin/edit-stockout/{id}', [stockoutController::class, 'edit'])->name('admin.edit_stockout');
 Route::put('/admin/edit-stockout/{id}', [stockoutController::class, 'update']);
 Route::delete('/admin/hapus-stockout/{id}', [stockoutController::class, 'destroy'])->name('admin.hapus_stockout');
+
+//PDF
+Route::get('/admin/generate-pdf', [ItemController::class, 'generatePDF'])->name('admin.generate_pdf');

@@ -7,6 +7,8 @@ use App\Models\Item;
 use App\Models\Kategori; // Pastikan menggunakan model yang benar
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class ItemController extends Controller
 {
@@ -111,4 +113,20 @@ public function destroy($id)
 
     return redirect()->route('admin.tampil_item')->with('success', 'Item berhasil dihapus');
 }
+
+
+public function generatePDF()
+{
+    $items = Item::all();
+
+    $pdf = new Dompdf();
+    $pdf->loadHtml(view('frontend.admin.items', compact('items')));
+
+    $pdf->setPaper('A4', 'landscape');
+
+    $pdf->render();
+
+    return $pdf->stream('items.pdf');
+}
+
 }
