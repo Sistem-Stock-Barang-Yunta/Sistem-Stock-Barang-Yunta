@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\StockInController;
+use App\Http\Controllers\StockOutController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -70,3 +71,12 @@ Route::post('/admin/store_stockin', [StockInController::class, 'store'])->name('
 Route::get('/admin/edit-stockin/{id}', [StockInController::class, 'edit'])->name('admin.edit_stockin');
 Route::put('/admin/edit-stockin/{id}', [StockInController::class, 'update']);
 Route::delete('/admin/hapus-stockin/{id}', [StockInController::class, 'destroy'])->name('admin.hapus_stockin');
+
+// Route stockout
+
+Route::get('stockout', [StockoutController::class, 'index'])->name('admin.stockout');
+Route::get('/admin/tambah-stockout', [stockoutController::class, 'create'])->name('admin.tambah_stockout');
+Route::post('/admin/store_stockout', [stockoutController::class, 'store'])->name('admin.store_stockout');
+Route::get('/admin/edit-stockout/{id}', [stockoutController::class, 'edit'])->name('admin.edit_stockout');
+Route::put('/admin/edit-stockout/{id}', [stockoutController::class, 'update']);
+Route::delete('/admin/hapus-stockout/{id}', [stockoutController::class, 'destroy'])->name('admin.hapus_stockout');
