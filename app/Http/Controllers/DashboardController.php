@@ -15,7 +15,12 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('frontend.staff.dashboard');
+        $totalSuppliers = Supplier::count();
+        $totalItems = Item::count();
+        $totalCategories = Kategori::count();
+        $totalStaff = User::where('role', 'staf')->count();
+
+        return view('frontend.dashboard', compact('totalSuppliers', 'totalItems', 'totalCategories', 'totalStaff'));
     }
 
     public function admin()
@@ -25,20 +30,20 @@ class DashboardController extends Controller
         $totalCategories = Kategori::count();
         $totalStaff = User::where('role', 'staf')->count();
 
-        return view('frontend.admin.admin', compact('totalSuppliers', 'totalItems', 'totalCategories', 'totalStaff'));
+        return view('frontend.dashboard', compact('totalSuppliers', 'totalItems', 'totalCategories', 'totalStaff'));
     }
 
     public function stock()
     {
         // Ambil data stok masuk
         $stockInData = StockIn::selectRaw('DATE(received_at) as date, SUM(quantity) as total')
-                        ->groupBy('date')
-                        ->get();
+            ->groupBy('date')
+            ->get();
 
         // Ambil data stok keluar
         $stockOutData = StockOut::selectRaw('DATE(received_at) as date, SUM(quantity) as total')
-                        ->groupBy('date')
-                        ->get();
+            ->groupBy('date')
+            ->get();
 
         // Siapkan data untuk chart
         $labels = [];

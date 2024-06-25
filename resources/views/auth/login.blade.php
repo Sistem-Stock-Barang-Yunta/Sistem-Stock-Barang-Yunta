@@ -39,27 +39,16 @@
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand">
-                            <img src="assets/img/stisla-fill.svg" alt="logo" width="100"
-                                class="shadow-light rounded-circle">
+                            <img src="assets/img/stock-logo.png" alt="logo" width="100" class="shadow-light">
                         </div>
-
-                        <div class="text-center"
-                            style=" /* width: 578px; */
-        color: black;
-        top: 404px;
-        /* left: 671px; */
-        
-        font-weight: ExtraBold;
-        font-size: 20px;">
-                            STOCK BARANG</div>
-
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h4>Login</h4>
                             </div>
-                            @csrf
                             <div class="card-body">
-                                <form method="POST" action="/login" class="user" novalidate="">
+                                <form method="POST" action="/login" class="user" novalidate=""
+                                    enctype="multipart/form-data">
+                                    @csrf
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1">Email</label>
                                         <input id="exampleInputEmail" type="email" class="form-control "
@@ -101,7 +90,7 @@
                                         </button>
                                     </div>
                                     <div class="mt-5 text-muted text-center">
-                                        Don't have an account? <a href="{{ url('register') }}">Create One</a>
+                                        Belum punya Akun? <a href="{{ url('register') }}">Create</a>
 
                                     </div>
                             </div>

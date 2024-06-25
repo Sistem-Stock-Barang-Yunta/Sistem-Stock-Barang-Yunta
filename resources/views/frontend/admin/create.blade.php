@@ -2,11 +2,11 @@
 
 @section('title', 'Admin')
 
-@section('main', 'Dashboard')
+@section('main', 'Add Item')
 
 @section('location')
-    <div class="breadcrumb-item"><a href="/admin">Dashboard Admin</a></div>
-    <div class="breadcrumb-item">Tambah Data Barang</div>
+    <div class="breadcrumb-item"><a href="/admin/tampil_item">Manage Items</a></div>
+    <div class="breadcrumb-item">Add Item</div>
 @endsection
 
 @section('content')
@@ -15,20 +15,21 @@
             <div class="card">
                 <div class="container py-5">
                     <div class="d-flex align-items-center justify-content-center flex-column">
-                        <h1>Tambah Data</h1>
+                        <h1>Add Item</h1>
                         <div class="row w-100 mt-5">
                             <div class="col-12 col-md-8 col-lg-6 mx-auto d-flex flex-column align-items-center">
                                 <form action="{{ route('admin.crud-tambah') }}" method="POST" enctype="multipart/form-data"
                                     class="w-75">
                                     @csrf
-                                    <label for="name">Nama Barang</label>
-                                    <input type="text" class="form-control" placeholder="Masukkan Nama Barang"
-                                        name="nama" required>
-                                    <label for="deskripsi">Deskripsi</label> <!-- Tambahkan label untuk deskripsi -->
-                                    <textarea class="form-control" placeholder="Masukkan Deskripsi Barang" name="description" required></textarea> <!-- Tambahkan input untuk deskripsi -->
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" placeholder="Item Name" name="nama"
+                                        required>
+                                    <label for="deskripsi">Description</label> <!-- Tambahkan label untuk deskripsi -->
+                                    <textarea class="form-control" placeholder="Item Description" name="description" required></textarea> <!-- Tambahkan input untuk deskripsi -->
                                     <div class="form-outline" data-mdb-input-init>
-                                        <label class="form-label" for="id_kategori">Kategori</label>
+                                        <label class="form-label" for="id_kategori">Category</label>
                                         <select class="form-control" name="id_kategori" required>
+                                            <option value="" disabled selected>=== Select Category ===</option>
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id_kategori }}">{{ $category->name }}</option>
                                             @endforeach
@@ -36,16 +37,16 @@
                                     </div>
                                     <div class="form-outline" data-mdb-input-init>
                                         <label class="form-label" for="sku">SKU</label>
-                                        <input type="text" id="sku" class="form-control"
-                                            placeholder="Masukkan kode SKU" name="sku" required>
+                                        <input type="text" id="sku" class="form-control" placeholder="SKU code"
+                                            name="sku" required>
                                     </div>
                                     <br>
-                                    <label class="form-label" for="customFile">Pilih Gambar</label>
+                                    <label class="form-label" for="customFile">Choose Image</label>
                                     <input type="file" class="form-control" accept="image/*" name="gambar"
                                         id="gambar" required>
                                     <br>
                                     <button class="btn btn-success" type="submit">Submit</button>
-                                    <a href="{{ route('frontend.admin.admin') }}" class="btn btn-primary">Kembali</a>
+                                    <a href="{{ route('frontend.admin.admin') }}" class="btn btn-danger">Cancel</a>
                                 </form>
                             </div>
                         </div>

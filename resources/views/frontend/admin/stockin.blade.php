@@ -1,6 +1,10 @@
 @extends('layouts.parent')
 
-@section('title', 'Admin')
+@if (Auth::user()->role == 'admin')
+    @section('title', 'Admin')
+@else
+    @section('title', 'Staff')
+@endif
 
 @section('main', 'Stock In')
 
@@ -15,7 +19,7 @@
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
                         <a href="{{ route('admin.tambah_stockin') }}" class="btn btn-md btn-success mb-3">
-                            <i class="fas fa-plus"></i> Tambah Stock In
+                            <i class="fas fa-plus"></i> New Track
                         </a>
                         <table class="table table-bordered">
                             <thead>
@@ -25,7 +29,7 @@
                                     <th scope="col">SUPPLIER</th>
                                     <th scope="col">QUANTITY</th>
                                     <th scope="col">RECEIVED AT</th>
-                                    <th scope="col">Aksi</th>
+                                    <th scope="col">ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>

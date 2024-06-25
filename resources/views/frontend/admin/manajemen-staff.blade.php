@@ -2,10 +2,10 @@
 
 @section('title', 'Admin')
 
-@section('main', 'Manajemen Staff')
+@section('main', 'Manage Staff')
 
 @section('location')
-    <div class="breadcrumb-item">Manajemen Staff</div>
+    <div class="breadcrumb-item">Manage Staff</div>
 @endsection
 
 @section('content')
@@ -18,10 +18,10 @@
                             <thead>
                                 <tr>
                                     <th scope="col">NO</th>
-                                    <th scope="col">NAMA</th>
-                                    <th scope="col">JABATAN</th>
+                                    <th scope="col">NAME</th>
+                                    <th scope="col">ROLE</th>
                                     <th scope="col">EMAIL</th>
-                                    <th scope="col">AKSI</th>
+                                    <th scope="col">ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>

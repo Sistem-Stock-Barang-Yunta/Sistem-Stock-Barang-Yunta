@@ -16,7 +16,7 @@ class ItemController extends Controller
     public function index()
     {
         $items = Item::all();
-        return view('frontend.admin.admin', compact('items'));
+        return view('frontend.admin.tampil_item', compact('items'));
     }
     public function item()
     {
@@ -41,14 +41,14 @@ class ItemController extends Controller
             'description' => 'required|string|max:255', // Menambah validasi untuk deskripsi
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-    
+
         $image = null;
-    
+
         if ($request->hasFile('gambar')) {
-            $image = time().'.'.$request->gambar->extension();
+            $image = time() . '.' . $request->gambar->extension();
             $request->gambar->storeAs('public', $image);
         }
-    
+
         Item::create([
             'name' => $request->nama,
             'id_kategori' => $request->id_kategori,
@@ -56,77 +56,77 @@ class ItemController extends Controller
             'description' => $request->description, // Menambahkan 'description'
             'gambar' => $image,
         ]);
-    
+
         return redirect()->route('admin.tampil_item')->with('success', 'Item berhasil ditambahkan');
     }
-    
 
-   // Method untuk menampilkan form edit data
-   public function edit($id)
-   {
-       $item = Item::findOrFail($id);
-       $categories = Kategori::all();
-       return view('frontend.admin.edit', compact('item', 'categories'));
-   }
 
-   public function update(Request $request, $id)
-{
-    Log::info('Update method called with data: ', $request->all());
-
-    $request->validate([
-        'nama' => 'required|string|max:255',
-        'id_kategori' => 'required|exists:kategori,id_kategori',
-        'sku' => 'required|string|max:255|unique:items,sku,'.$id,
-        'description' => 'nullable|string|max:255',
-        'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
-    ]);
-
-    $item = Item::findOrFail($id);
-
-    if ($request->hasFile('gambar')) {
-        $image = time().'.'.$request->gambar->extension();
-        $request->gambar->storeAs('public', $image);
-
-        if ($item->gambar) {
-            Storage::delete('public/'.$item->gambar);
-        }
-
-        $item->gambar = $image;
+    // Method untuk menampilkan form edit data
+    public function edit($id)
+    {
+        $item = Item::findOrFail($id);
+        $categories = Kategori::all();
+        return view('frontend.admin.edit', compact('item', 'categories'));
     }
 
-    $item->name = $request->nama;
-    $item->id_kategori = $request->id_kategori;
-    $item->sku = $request->sku;
-    $item->description = $request->description;
+    public function update(Request $request, $id)
+    {
+        Log::info('Update method called with data: ', $request->all());
 
-    $item->save();
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'id_kategori' => 'required|exists:kategori,id_kategori',
+            'sku' => 'required|string|max:255|unique:items,sku,' . $id,
+            'description' => 'nullable|string|max:255',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
 
-    Log::info('Item updated successfully');
+        $item = Item::findOrFail($id);
 
-    return redirect()->route('admin.tampil_item')->with('success', 'Item berhasil diperbarui');
-}
+        if ($request->hasFile('gambar')) {
+            $image = time() . '.' . $request->gambar->extension();
+            $request->gambar->storeAs('public', $image);
 
-public function destroy($id)
-{
-    $item = Item::findOrFail($id); // Temukan item berdasarkan ID
-    $item->delete(); // Hapus item dari database
+            if ($item->gambar) {
+                Storage::delete('public/' . $item->gambar);
+            }
 
-    return redirect()->route('admin.tampil_item')->with('success', 'Item berhasil dihapus');
-}
+            $item->gambar = $image;
+        }
+
+        $item->name = $request->nama;
+        $item->id_kategori = $request->id_kategori;
+        $item->sku = $request->sku;
+        $item->description = $request->description;
+
+        $item->save();
+
+        Log::info('Item updated successfully');
+
+        return redirect()->route('admin.tampil_item')->with('success', 'Item berhasil diperbarui');
+    }
+
+    public function destroy($id)
+    {
+        $item = Item::findOrFail($id); // Temukan item berdasarkan ID
+        $item->delete(); // Hapus item dari database
+
+        return redirect()->route('admin.tampil_item')->with('success', 'Item berhasil dihapus');
+    }
 
 
-public function generatePDF()
-{
-    $items = Item::all();
+    public function generatePDF()
+    {
+        $items = Item::all();
 
-    $pdf = new Dompdf();
-    $pdf->loadHtml(view('frontend.admin.items', compact('items')));
+        $pdf = new Dompdf();
+        $pdf->loadHtml(view('frontend.admin.items', compact('items')));
 
-    $pdf->setPaper('A4', 'landscape');
+        $pdf->setPaper('A4', 'landscape');
 
-    $pdf->render();
+        $pdf->render();
 
-    return $pdf->stream('items.pdf');
-}
+        return $pdf->stream('items.pdf');
+    }
 
 }

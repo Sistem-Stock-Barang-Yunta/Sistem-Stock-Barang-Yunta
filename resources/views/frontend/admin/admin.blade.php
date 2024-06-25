@@ -12,7 +12,7 @@
     <div class="card-body">
         {{-- card --}}
         <div class="row">
-            <div class="col-lg-4 col-12">
+            <div class="col-lg-3 col-12">
                 <div class="card card-statistic-1">
                     <a href="{{ route('admin.tampil_supplier') }}" class="stretched-link"></a>
                     <div class="card-icon bg-primary">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-12">
+            <div class="col-lg-3 col-12">
                 <div class="card card-statistic-1">
                     <a href="{{ route('admin.tampil_item') }}" class="stretched-link"></a>
                     <div class="card-icon bg-success">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-12">
+            <div class="col-lg-3 col-12">
                 <div class="card card-statistic-1">
                     <a href="{{ route('admin.tampilkategori') }}" class="stretched-link"></a>
                     <div class="card-icon bg-warning">
@@ -61,7 +61,7 @@
                 </div>
             </div>
             @if (Auth::user()->role == 'admin')
-                <div class="col-lg-4 col-12">
+                <div class="col-lg-3 col-12">
                     <div class="card card-statistic-1">
                         <a href="{{ route('admin.tampil_staff') }}" class="stretched-link"></a>
                         <div class="card-icon bg-danger">

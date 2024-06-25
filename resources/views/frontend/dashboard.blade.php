@@ -1,6 +1,10 @@
 @extends('layouts.parent')
 
-@section('title', 'Staff')
+@if (Auth::user()->role == 'admin')
+    @section('title', 'Admin')
+@else
+    @section('title', 'Staff')
+@endif
 
 @section('main', 'Dashboard')
 
@@ -10,51 +14,86 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-4 col-12">
+        @if (Auth::user()->role == 'admin')
+            <div class="col-lg-3 col-12">
+            @else
+                <div class="col-lg-4 col-12">
+        @endif
+        <div class="card card-statistic-1">
+            <a href="{{ route('admin.tampil_supplier') }}" class="stretched-link"></a>
+            <div class="card-icon bg-primary">
+                <i class="far fa-user"></i>
+            </div>
+            <div class="card-wrap">
+                <div class="card-header">
+                    <h4>Total Supplier</h4>
+                </div>
+                <div class="card-body">
+                    {{ $totalSuppliers }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (Auth::user()->role == 'admin')
+        <div class="col-lg-3 col-12">
+        @else
+            <div class="col-lg-4 col-12">
+    @endif
+    <div class="card card-statistic-1">
+        <a href="{{ route('admin.tampil_item') }}" class="stretched-link"></a>
+        <div class="card-icon bg-success">
+            <i class="fas fa-cube"></i>
+        </div>
+        <div class="card-wrap">
+            <div class="card-header">
+                <h4>Total Item</h4>
+            </div>
+            <div class="card-body">
+                {{ $totalItems }}
+            </div>
+        </div>
+    </div>
+    </div>
+
+    @if (Auth::user()->role == 'admin')
+        <div class="col-lg-3 col-12">
+        @else
+            <div class="col-lg-4 col-12">
+    @endif
+    <div class="card card-statistic-1">
+        <a href="{{ route('admin.tampilkategori') }}" class="stretched-link"></a>
+        <div class="card-icon bg-warning">
+            <i class="fas fa-thumbtack"></i>
+        </div>
+        <div class="card-wrap">
+            <div class="card-header">
+                <h4>Total Category</h4>
+            </div>
+            <div class="card-body">
+                {{ $totalCategories }}
+            </div>
+        </div>
+    </div>
+    </div>
+    @if (Auth::user()->role == 'admin')
+        <div class="col-lg-3 col-12">
             <div class="card card-statistic-1">
-                <div class="card-icon bg-primary">
-                    <i class="far fa-user"></i>
+                <a href="{{ route('admin.tampil_staff') }}" class="stretched-link"></a>
+                <div class="card-icon bg-danger">
+                    <i class="far fa-id-badge"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total Supplier</h4>
+                        <h4>Total Staff</h4>
                     </div>
                     <div class="card-body">
-                        10
+                        {{ $totalStaff }}
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-12">
-            <div class="card card-statistic-1">
-                <div class="card-icon bg-success">
-                    <i class="fas fa-cube"></i>
-                </div>
-                <div class="card-wrap">
-                    <div class="card-header">
-                        <h4>Total Item</h4>
-                    </div>
-                    <div class="card-body">
-                        42
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-12">
-            <div class="card card-statistic-1">
-                <div class="card-icon bg-warning">
-                    <i class="fas fa-thumbtack"></i>
-                </div>
-                <div class="card-wrap">
-                    <div class="card-header">
-                        <h4>Total Category</h4>
-                    </div>
-                    <div class="card-body">
-                        10
-                    </div>
-                </div>
-            </div>
-        </div>
+    @endif
 
     </div>
     <div class="row">
