@@ -69,7 +69,7 @@
                                         <br><br>
                                     @endif
                                     <button class="btn btn-success" type="submit">Simpan Perubahan</button>
-                                    <a href="{{ route('frontend.admin.admin') }}" class="btn btn-danger">Batal</a>
+                                    <a href="{{ route('admin.tampil_item') }}" class="btn btn-danger">Batal</a>
                                 </form>
                             </div>
                         </div>

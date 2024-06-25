@@ -2,10 +2,11 @@
 
 @section('title', 'Admin')
 
+@section('subtitle', 'Add Item')
 @section('main', 'Add Item')
 
 @section('location')
-    <div class="breadcrumb-item"><a href="/admin/tampil_item">Manage Items</a></div>
+    <div class="breadcrumb-item"><a href="{{ route('admin.tampil_item') }}">Manage Items</a></div>
     <div class="breadcrumb-item">Add Item</div>
 @endsection
 
@@ -46,7 +47,7 @@
                                         id="gambar" required>
                                     <br>
                                     <button class="btn btn-success" type="submit">Submit</button>
-                                    <a href="{{ route('frontend.admin.admin') }}" class="btn btn-danger">Cancel</a>
+                                    <a href="{{ route('admin.tampil_item') }}" class="btn btn-danger">Cancel</a>
                                 </form>
                             </div>
                         </div>

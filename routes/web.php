@@ -28,57 +28,71 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// kategori
-Route::get('/admin/tampilkategori', [CategoryController::class, 'index'])->name('admin.tampilkategori');
-Route::get('/admin/crud-tambah-kategori', [CategoryController::class, 'create'])->name('admin.crud-tambah-kategori');
-Route::post('/admin/crud-tambah-kategori', [CategoryController::class, 'store']);
-Route::get('/admin/crud-edit-kategori/{id_kategori}', [CategoryController::class, 'edit'])->name('admin.crud-edit-kategori');
-Route::put('/admin/crud-edit-kategori/{id_kategori}', [CategoryController::class, 'update']);
-Route::delete('/admin/crud-delete/{id_kategori}', [CategoryController::class, 'destroy'])->name('admin.crud-delete-kategori');
-
 
 // supplier
-Route::get('/admin/tampil_supplier', [SupplierController::class, 'index'])->name('admin.tampil_supplier');
-Route::get('/admin/tambah_supplier', [SupplierController::class, 'create'])->name('admin.tambah_supplier');
-Route::post('/admin/tambah_supplier', [SupplierController::class, 'store']);
-Route::get('/admin/edit_supplier/{id}', [SupplierController::class, 'edit'])->name('admin.edit_supplier');
-Route::put('/admin/edit_supplier/{id}', [SupplierController::class, 'update']);
-Route::delete('/admin/hapus_supplier/{id}', [SupplierController::class, 'destroy'])->name('admin.hapus_supplier');
+Route::prefix('supplier')->group(function () {
+    Route::get('/', [SupplierController::class, 'index'])->name('admin.tampil_supplier');
+    Route::get('/new', [SupplierController::class, 'create'])->name('admin.tambah_supplier');
+    Route::post('/new-process', [SupplierController::class, 'store']);
+    Route::get('/edit/{id}', [SupplierController::class, 'edit'])->name('admin.edit_supplier');
+    Route::put('/edit-process/{id}', [SupplierController::class, 'update']);
+    Route::delete('/delete/{id}', [SupplierController::class, 'destroy'])->name('admin.hapus_supplier');
+});
 
 
 // user
 Route::get('/admin/tampil_staff', [UserController::class, 'tampil'])->name('admin.tampil_staff');
-Route::get('/manajemen-staff', [UserController::class, 'index'])->name('admin.manajemen.staff');
+Route::get('/manage-staff', [UserController::class, 'index'])->name('admin.manajemen.staff');
 Route::get('/admin/edit_staff/{id}', [UserController::class, 'edit'])->name('admin.edit_staff');
 Route::put('/admin/edit_staff/{id}', [UserController::class, 'update']);
 Route::delete('/admin/delete_user/{id}', [UserController::class, 'destroy'])->name('admin.delete_user');
 
-// Items
-Route::get('/item', [ItemController::class, 'index'])->name('frontend.admin.admin');
-Route::get('/admin/tampil_item', [ItemController::class, 'item'])->name('admin.tampil_item');
-// Routes for item CRUD
-Route::get('/admin/crud-tambah', [ItemController::class, 'create'])->name('admin.crud-tambah');
-Route::post('/admin/crud-tambah', [ItemController::class, 'store']);
-Route::get('/admin/crud-edit-item/{id}', [ItemController::class, 'edit'])->name('admin.crud-edit-item');
-Route::put('/admin/crud-update-item/{id}', [ItemController::class, 'update'])->name('admin.crud-update-item');
-Route::delete('/admin/hapus-item/{id}', [ItemController::class, 'destroy'])->name('admin.hapus-item');
+// Items & Categories
+Route::prefix('items')->group(function () {
+    // item
+    Route::prefix('manage-items')->group(function () {
+        Route::get('/', [ItemController::class, 'item'])->name('admin.tampil_item');
+        // Routes for item CRUD
+        Route::get('/new', [ItemController::class, 'create'])->name('admin.crud-tambah');
+        Route::post('/new-process', [ItemController::class, 'store']);
+        Route::get('/edit/{id}', [ItemController::class, 'edit'])->name('admin.crud-edit-item');
+        Route::put('/edit-process/{id}', [ItemController::class, 'update'])->name('admin.crud-update-item');
+        Route::delete('/delete/{id}', [ItemController::class, 'destroy'])->name('admin.hapus-item');
+    });
+
+    // kategori
+    Route::prefix('manage-categories')->group(function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('admin.tampilkategori');
+        Route::get('/new', [CategoryController::class, 'create'])->name('admin.crud-tambah-kategori');
+        Route::post('/new-process', [CategoryController::class, 'store']);
+        Route::get('/edit/{id_kategori}', [CategoryController::class, 'edit'])->name('admin.crud-edit-kategori');
+        Route::put('/edit-process/{id_kategori}', [CategoryController::class, 'update']);
+        Route::delete('/delete/{id_kategori}', [CategoryController::class, 'destroy'])->name('admin.crud-delete-kategori');
+    });
+});
+
 
 // Route stockIn
 
-Route::get('stockin', [StockInController::class, 'index'])->name('admin.stockin');
-Route::get('/admin/tambah-stockin', [StockInController::class, 'create'])->name('admin.tambah_stockin');
-Route::post('/admin/store_stockin', [StockInController::class, 'store'])->name('admin.store_stockin');
-Route::get('/admin/edit-stockin/{id}', [StockInController::class, 'edit'])->name('admin.edit_stockin');
-Route::put('/admin/edit-stockin/{id}', [StockInController::class, 'update']);
-Route::delete('/admin/hapus-stockin/{id}', [StockInController::class, 'destroy'])->name('admin.hapus_stockin');
+Route::prefix('stockin')->group(function () {
+    Route::get('/', [StockInController::class, 'index'])->name('admin.stockin');
+    Route::get('/new', [StockInController::class, 'create'])->name('admin.tambah_stockin');
+    Route::post('/new-process', [StockInController::class, 'store'])->name('admin.store_stockin');
+    Route::get('/edit/{id}', [StockInController::class, 'edit'])->name('admin.edit_stockin');
+    Route::put('/edit-process/{id}', [StockInController::class, 'update']);
+    Route::delete('/delete/{id}', [StockInController::class, 'destroy'])->name('admin.hapus_stockin');
+});
+
 
 // Route stockout
-Route::get('stockout', [StockoutController::class, 'index'])->name('admin.stockout');
-Route::get('/admin/tambah-stockout', [stockoutController::class, 'create'])->name('admin.tambah_stockout');
-Route::post('/admin/store_stockout', [stockoutController::class, 'store'])->name('admin.store_stockout');
-Route::get('/admin/edit-stockout/{id}', [stockoutController::class, 'edit'])->name('admin.edit_stockout');
-Route::put('/admin/edit-stockout/{id}', [stockoutController::class, 'update']);
-Route::delete('/admin/hapus-stockout/{id}', [stockoutController::class, 'destroy'])->name('admin.hapus_stockout');
+Route::prefix('stockout')->group(function () {
+    Route::get('/', [StockoutController::class, 'index'])->name('admin.stockout');
+    Route::get('/new', [stockoutController::class, 'create'])->name('admin.tambah_stockout');
+    Route::post('/new-process', [stockoutController::class, 'store'])->name('admin.store_stockout');
+    Route::get('/edit/{id}', [stockoutController::class, 'edit'])->name('admin.edit_stockout');
+    Route::put('/edit-process/{id}', [stockoutController::class, 'update']);
+    Route::delete('/delete/{id}', [stockoutController::class, 'destroy'])->name('admin.hapus_stockout');
+});
 
 //PDF
 Route::get('/admin/generate-pdf', [ItemController::class, 'generatePDF'])->name('admin.generate_pdf');

@@ -2,6 +2,7 @@
 
 @section('title', 'Admin')
 
+@section('subtitle', 'Manage Supplier')
 @section('main', 'Manage Supplier')
 
 @section('location')

@@ -13,11 +13,7 @@ use Dompdf\Options;
 class ItemController extends Controller
 {
     // Method untuk menampilkan halaman utama dengan daftar items
-    public function index()
-    {
-        $items = Item::all();
-        return view('frontend.admin.tampil_item', compact('items'));
-    }
+
     public function item()
     {
         $items = Item::all();

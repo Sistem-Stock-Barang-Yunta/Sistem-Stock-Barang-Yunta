@@ -6,6 +6,7 @@
     @section('title', 'Staff')
 @endif
 
+@section('subtitle', 'Dashboard')
 @section('main', 'Dashboard')
 
 @section('location')

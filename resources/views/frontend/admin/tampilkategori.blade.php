@@ -1,7 +1,8 @@
 @extends('layouts.parent')
 
-@section('title', 'Tampil Kategori')
+@section('title', 'Admin')
 
+@section('subtitle', 'Manage Categories')
 @section('main', 'Manage Categories')
 
 @section('location')

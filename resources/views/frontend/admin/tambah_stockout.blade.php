@@ -6,6 +6,7 @@
     @section('title', 'Staff')
 @endif
 
+@section('subtitle', 'Add Stock Out')
 @section('main', 'Add Stock Out')
 
 @section('location')
