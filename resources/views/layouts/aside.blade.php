@@ -27,20 +27,19 @@
                 </ul>
             </li>
         @endif
-        <li class="active"><a class="nav-link" href="/"><i class="fas fa-home"></i>
+        <li class=""><a class="nav-link" href="/"><i class="fas fa-home"></i>
                 <span>Dashboard</span></a></li>
                 <li class="active"><a class="nav-link" href="/manajemen-staff"><i class="fas fa-home"></i>
                     <span>Manajemen Staff</span></a></li>
-                <li class="active"><a class="nav-link" href="/stockin"><i class="fas fa-home"></i>
-                    <span>Stock In</span></a></li>
-                <li class="active"><a class="nav-link" href="/stokout"><i class="fas fa-home"></i>
-                    <span>Stock Out</span></a></li>
+                
         <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i>
-                <span>Article</span></a>
+                <span>Stock</span></a>
             <ul class="dropdown-menu">
-                <li><a class="nav-link" href="/admin/article">All Data</a></li>
-                <li><a class="nav-link" href="/admin/article/create">Create Data</a></li>
+                <li class=""><a class="nav-link" href="/stockin"><i class="fas fa-home"></i>
+                    <span>Stock In</span></a></li>
+                <li class=""><a class="nav-link" href="/stokout"><i class="fas fa-home"></i>
+                    <span>Stock Out</span></a></li>
             </ul>
         </li>
 
