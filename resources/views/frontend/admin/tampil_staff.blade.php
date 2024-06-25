@@ -5,7 +5,7 @@
 @section('main', 'Manajemen Staff')
 
 @section('location')
-    <div class="breadcrumb-item">Manajemen Staff</div>
+    <div class="breadcrumb-item">Data Staff</div>
 @endsection
 
 @section('content')
@@ -21,7 +21,6 @@
                                     <th scope="col">NAMA</th>
                                     <th scope="col">JABATAN</th>
                                     <th scope="col">EMAIL</th>
-                                    <th scope="col">AKSI</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -31,16 +30,6 @@
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->role }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td>
-                                            <a href="{{ route('admin.edit_staff', $user->id) }}"
-                                                class="btn btn-primary btn-sm">Edit</a>
-                                            <form action="{{ route('admin.delete_user', $user->id) }}" method="POST"
-                                                class="d-inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                                            </form>
-                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

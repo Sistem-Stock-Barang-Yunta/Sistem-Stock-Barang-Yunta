@@ -1,6 +1,8 @@
 .card {
   @include card_base();
-  .card-header, .card-body, .card-footer {
+  .card-header,
+  .card-body,
+  .card-footer {
     background-color: transparent;
     padding: 20px 25px;
   }
@@ -134,12 +136,12 @@
       .card-progress-dismiss {
         top: 50%;
         -webkit-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
       }
     }
     &:not(.remove-spinner) {
       &:after {
-        background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJsb2FkZXItMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQogd2lkdGg9IjQwcHgiIGhlaWdodD0iNDBweCIgdmlld0JveD0iMCAwIDUwIDUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MCA1MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iIzAwMCIgZD0iTTQzLjkzNSwyNS4xNDVjMC0xMC4zMTgtOC4zNjQtMTguNjgzLTE4LjY4My0xOC42ODNjLTEwLjMxOCwwLTE4LjY4Myw4LjM2NS0xOC42ODMsMTguNjgzaDQuMDY4YzAtOC4wNzEsNi41NDMtMTQuNjE1LDE0LjYxNS0xNC42MTVjOC4wNzIsMCwxNC42MTUsNi41NDMsMTQuNjE1LDE0LjYxNUg0My45MzV6Ij4NCjxhbmltYXRlVHJhbnNmb3JtIGF0dHJpYnV0ZVR5cGU9InhtbCINCiAgYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIg0KICB0eXBlPSJyb3RhdGUiDQogIGZyb209IjAgMjUgMjUiDQogIHRvPSIzNjAgMjUgMjUiDQogIGR1cj0iMC42cyINCiAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz4NCjwvcGF0aD4NCjwvc3ZnPg0K');
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJsb2FkZXItMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQogd2lkdGg9IjQwcHgiIGhlaWdodD0iNDBweCIgdmlld0JveD0iMCAwIDUwIDUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MCA1MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iIzAwMCIgZD0iTTQzLjkzNSwyNS4xNDVjMC0xMC4zMTgtOC4zNjQtMTguNjgzLTE4LjY4My0xOC42ODNjLTEwLjMxOCwwLTE4LjY4Myw4LjM2NS0xOC42ODMsMTguNjgzaDQuMDY4YzAtOC4wNzEsNi41NDMtMTQuNjE1LDE0LjYxNS0xNC42MTVjOC4wNzIsMCwxNC42MTUsNi41NDMsMTQuNjE1LDE0LjYxNUg0My45MzV6Ij4NCjxhbmltYXRlVHJhbnNmb3JtIGF0dHJpYnV0ZVR5cGU9InhtbCINCiAgYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIg0KICB0eXBlPSJyb3RhdGUiDQogIGZyb209IjAgMjUgMjUiDQogIHRvPSIzNjAgMjUgMjUiDQogIGR1cj0iMC42cyINCiAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz4NCjwvcGF0aD4NCjwvc3ZnPg0K");
         background-size: 80px;
         background-repeat: no-repeat;
         background-position: center;
@@ -170,7 +172,11 @@
   &.card-hero {
     .card-header {
       padding: 40px;
-      background-image: linear-gradient(to bottom, color(primary), color_lighten(primary, 10%));
+      background-image: linear-gradient(
+        to bottom,
+        color(primary),
+        color_lighten(primary, 10%)
+      );
       color: #fff;
       overflow: hidden;
       height: auto;
@@ -189,13 +195,18 @@
         float: right;
         color: color_lighten(primary, 8%);
         margin: -60px;
-        .ion, .fas, .far, .fab, .fal {
+        .ion,
+        .fas,
+        .far,
+        .fab,
+        .fal {
           font-size: 140px;
         }
       }
     }
   }
-  &.card-statistic-1 .card-header, &.card-statistic-2 .card-header {
+  &.card-statistic-1 .card-header,
+  &.card-statistic-2 .card-header {
     border-color: transparent;
     padding-bottom: 0;
     height: auto;
@@ -211,17 +222,20 @@
   &.card-statistic-2 .card-body {
     padding-top: 0;
   }
-  &.card-statistic-1 .card-body, &.card-statistic-2 .card-body {
+  &.card-statistic-1 .card-body,
+  &.card-statistic-2 .card-body {
     font-size: 26px;
     font-weight: 700;
     color: color(fontdark);
     padding-bottom: 0;
   }
-  &.card-statistic-1, &.card-statistic-2 {
+  &.card-statistic-1,
+  &.card-statistic-2 {
     display: inline-block;
     width: 100%;
   }
-  &.card-statistic-1 .card-icon, &.card-statistic-2 .card-icon {
+  &.card-statistic-1 .card-icon,
+  &.card-statistic-2 .card-icon {
     width: 80px;
     height: 80px;
     margin: 10px;
@@ -230,7 +244,11 @@
     text-align: center;
     float: left;
     margin-right: 15px;
-    .ion, .fas, .far, .fab, .fal {
+    .ion,
+    .fas,
+    .far,
+    .fab,
+    .fal {
       font-size: 22px;
       color: #fff;
     }
@@ -245,7 +263,8 @@
     font-size: 22px;
     margin: 25px;
   }
-  &.card-statistic-1 .card-header, &.card-statistic-2 .card-header {
+  &.card-statistic-1 .card-header,
+  &.card-statistic-2 .card-header {
     padding-bottom: 0;
     padding-top: 25px;
   }
@@ -256,10 +275,11 @@
   &.card-statistic-2 .card-body + .card-header {
     padding-top: 0;
   }
-  &.card-statistic-1 .card-header h4, &.card-statistic-2 .card-header h4 {
+  &.card-statistic-1 .card-header h4,
+  &.card-statistic-2 .card-header h4 {
     font-weight: 600;
     font-size: 13px;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
   }
   &.card-statistic-1 .card-header h4 {
     margin-bottom: 0;
@@ -292,7 +312,7 @@
       background-color: #fff;
       font-size: 13px;
       font-weight: 600;
-      letter-spacing: .3px;
+      letter-spacing: 0.3px;
     }
     .card-stats-items {
       display: flex;
@@ -305,7 +325,7 @@
       padding: 5px 20px;
       .card-stats-item-label {
         font-size: 12px;
-        letter-spacing: .5px;
+        letter-spacing: 0.5px;
         margin-top: 4px;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -329,7 +349,11 @@
       flex-shrink: 0;
       width: 150px;
       border-radius: 3px 0 0 3px;
-      .ion, .fas, .far, .fab, .fal {
+      .ion,
+      .fas,
+      .far,
+      .fab,
+      .fal {
         font-size: 60px;
       }
     }
@@ -339,7 +363,7 @@
         font-size: 18px;
       }
       p {
-        opacity: .6;
+        opacity: 0.6;
         font-weight: 500;
       }
       a.card-cta {
@@ -350,12 +374,22 @@
       }
     }
   }
-  &.bg-primary, &.bg-danger, &.bg-success, &.bg-info, &.bg-dark, &.bg-warning {
+  &.bg-primary,
+  &.bg-danger,
+  &.bg-success,
+  &.bg-info,
+  &.bg-dark,
+  &.bg-warning {
     color: #fff;
   }
-  &.bg-primary .card-header, &.bg-danger .card-header, &.bg-success .card-header, &.bg-info .card-header, &.bg-dark .card-header, &.bg-warning .card-header {
+  &.bg-primary .card-header,
+  &.bg-danger .card-header,
+  &.bg-success .card-header,
+  &.bg-info .card-header,
+  &.bg-dark .card-header,
+  &.bg-warning .card-header {
     color: #fff;
-    opacity: .9;
+    opacity: 0.9;
   }
 }
 
