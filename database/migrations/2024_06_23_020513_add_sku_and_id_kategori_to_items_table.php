@@ -14,11 +14,15 @@ class AddSkuAndIdKategoriToItemsTable extends Migration
     public function up()
     {
         Schema::table('items', function (Blueprint $table) {
-            $table->string('SKU')->after('id'); // Menambahkan kolom SKU setelah kolom id
-            $table->unsignedBigInteger('id_kategori')->after('SKU'); // Menambahkan kolom id_kategori setelah kolom SKU
+            if (!Schema::hasColumn('items', 'SKU')) {
+                $table->string('SKU')->after('id');
+            }
+            if (!Schema::hasColumn('items', 'id_kategori')) {
+                $table->unsignedBigInteger('id_kategori')->after('SKU');
 
-            // Menambahkan foreign key constraint
-            $table->foreign('id_kategori')->references('id_kategori')->on('kategori')->onDelete('cascade');
+                // Menambahkan foreign key constraint
+                $table->foreign('id_kategori')->references('id_kategori')->on('kategori')->onDelete('cascade');
+            }
         });
     }
 

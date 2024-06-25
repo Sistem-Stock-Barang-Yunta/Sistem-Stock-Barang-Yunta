@@ -59,7 +59,7 @@
                             </div>
                             @csrf
                             <div class="card-body">
-                                <form method="POST" action="" class="user" novalidate="">
+                                <form method="POST" action="/login" class="user" novalidate="">
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1">Email</label>
                                         <input id="exampleInputEmail" type="email" class="form-control "

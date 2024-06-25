@@ -59,7 +59,7 @@
                             </div>
                             @csrf
                             <div class="card-body">
-                                <form method="POST" action="" class="needs-validation" novalidate="">
+                                <form method="POST" action="/register" class="needs-validation" novalidate="">
                                     @csrf
                                     <div class="form-group">
                                         <label for="name">Username</label>
