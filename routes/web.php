@@ -54,7 +54,7 @@ Route::put('/admin/edit_staff/{id}', [UserController::class, 'update']);
 Route::delete('/admin/delete_user/{id}', [UserController::class, 'destroy'])->name('admin.delete_user');
 
 // Items
-Route::get('/admin', [ItemController::class, 'index'])->name('frontend.admin.admin');
+Route::get('/item', [ItemController::class, 'index'])->name('frontend.admin.admin');
 Route::get('/admin/tampil_item', [ItemController::class, 'item'])->name('admin.tampil_item');
 // Routes for item CRUD
 Route::get('/admin/crud-tambah', [ItemController::class, 'create'])->name('admin.crud-tambah');
@@ -82,3 +82,9 @@ Route::delete('/admin/hapus-stockout/{id}', [stockoutController::class, 'destroy
 
 //PDF
 Route::get('/admin/generate-pdf', [ItemController::class, 'generatePDF'])->name('admin.generate_pdf');
+
+// dashboar admin dan staff
+Route::get('/dashboard', [DashboardController::class, 'admin'])->name('admin.dashboard');
+
+// //grafik
+Route::get('/stock', [DashboardController::class, 'stock'])->name('admin.stock');

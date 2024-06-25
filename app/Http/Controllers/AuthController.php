@@ -11,11 +11,10 @@ use Illuminate\Validation\Rules\Password;
 
 class AuthController extends Controller
 {
-    
-
     public function registerForm() {
         return view('auth.register');
     }
+
     public function register(Request $request)
     {
         $request->validate([
@@ -35,6 +34,7 @@ class AuthController extends Controller
         Auth::login($user);
         return redirect('/login');
     }
+
     public function loginForm() {
         return view('auth.login');
     }
@@ -45,16 +45,19 @@ class AuthController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-
+    
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            
+            // Redirect semua user ke dashboard admin
+            return redirect()->intended('/dashboard');
         }
-
+    
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
     }
+    
 
     public function logout(Request $request)
     {

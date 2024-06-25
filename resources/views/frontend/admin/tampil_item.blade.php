@@ -24,11 +24,13 @@
         <div class="table-responsive">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h4>Tabel Data Barang</h4>
+                @if(Auth::user()->role == 'admin')
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <a href="{{ route('admin.crud-tambah') }}" class="btn btn-success bi bi-file-earmark-plus-fill"> Tambah Data</a>
+                    @endif
                     <a href="{{ route('admin.generate_pdf') }}" class="btn btn-primary bi bi-file-earmark-arrow-down position-relative">Unduh data</a>
-                    </button>
                 </div>
+               
             </div>
             <table class="table table-hover">
                 <thead>
@@ -40,7 +42,9 @@
                         <th>SKU</th>
                         <th>Gambar</th>
                         <th>Tanggal ditambahkan</th>
+                        @if(Auth::user()->role == 'admin')
                         <th>Aksi</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -53,6 +57,7 @@
                             <td>{{ $item->SKU }}</td>
                             <td><img src="{{ asset('storage/' . $item->gambar) }}" alt="Gambar {{ $item->name }}" width="50"></td>
                             <td>{{ $item->created_at }}</td>
+                            @if(Auth::user()->role == 'admin')
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                     <a href="{{ route('admin.crud-edit-item', $item->id) }}" class="btn btn-success fa fa-edit"></a>
@@ -63,6 +68,7 @@
                                     </form>
                                 </div>
                             </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>

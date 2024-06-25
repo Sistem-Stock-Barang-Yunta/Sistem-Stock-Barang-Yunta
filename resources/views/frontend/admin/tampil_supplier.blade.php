@@ -20,9 +20,11 @@
             <div
                 class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h4>Tabel Supplier</h4>
+                @if(Auth::user()->role == 'admin')
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <a href="{{ route('admin.tambah_supplier') }}" class="btn btn-success bi bi-file-earmark-plus-fill"> Tambah Supplier</a>
                 </div>
+                @endif
             </div>
             <table class="table table-hover">
                 <thead>
@@ -31,7 +33,9 @@
                         <th>Nama Supplier</th>
                         <th>Kontak</th>
                         <th>Alamat</th>
+                        @if(Auth::user()->role == 'admin')
                         <th>Aksi</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -41,6 +45,7 @@
                         <td>{{ $supplier->nama_supplier }}</td>
                         <td>{{ $supplier->kontak }}</td>
                         <td>{{ $supplier->alamat }}</td>
+                        @if(Auth::user()->role == 'admin')
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                 <a href="{{ route('admin.edit_supplier', $supplier->id) }}" class="btn btn-primary fa fa-edit"></a>
@@ -51,6 +56,7 @@
                                 </form>
                             </div>
                         </td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>

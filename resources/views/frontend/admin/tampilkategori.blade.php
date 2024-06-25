@@ -19,16 +19,20 @@
         <div class="table-responsive">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h4>Tabel Kategori</h4>
+                @if(Auth::user()->role == 'admin')
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <a href="{{ route('admin.crud-tambah-kategori') }}" class="btn btn-success bi bi-file-earmark-plus-fill"> Tambah Kategori</a>
                 </div>
+                @endif
             </div>
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>Nama Kategori</th>
+                        @if(Auth::user()->role == 'admin')
                         <th>Aksi</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -36,6 +40,7 @@
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $category->name }}</td>
+                        @if(Auth::user()->role == 'admin')
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                 <a href="{{ route('admin.crud-edit-kategori', ['id_kategori' => $category->id_kategori]) }}" class="btn btn-success fa fa-edit"></a>
@@ -47,6 +52,7 @@
                                 </form>
                             </div>
                         </td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>
