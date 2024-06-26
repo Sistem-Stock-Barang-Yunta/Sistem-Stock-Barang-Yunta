@@ -62,11 +62,15 @@ _Ikuti petunjuk dibawah untuk penggunaan program._
    ```sh
    git clone https://github.com/Sistem-Stock-Barang-Yunta/Sistem-Stock-Barang-Yunta.git
    ```
-2. Install Dependency
+2. Masuk ke direktori
+   ```sh
+   cd "Sistem-Stock-Barang-Yunta"
+   ```
+3. Install Dependency
    ```sh
    composer install
    ```
-3. Buat file .env dan sesuaikan config database
+4. Buat file .env dan sesuaikan config database
    ```sh
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
@@ -75,19 +79,23 @@ _Ikuti petunjuk dibawah untuk penggunaan program._
    DB_USERNAME=root
    DB_PASSWORD=
    ```
-4. Hubungkan dengan storage public
+5. Hubungkan dengan storage public
    ```sh
    php artisan storage:link
    ```
-5. Migrasi database
+6. buat database bernama "sistem-stok-barang" sesuai data di .env
+   ```sh
+   CREATE DATABASE sistem-stok-barang;
+   ```
+7. Migrasi database
    ```sh
    php artisan migrate
    ```
-6. Gunakan data seeder
+8. Gunakan data seeder
    ```sh
    php artisan db:seed
    ```
-7. Jalankan program
+9. Jalankan program
    ```sh
    php artisan serve
    ```
