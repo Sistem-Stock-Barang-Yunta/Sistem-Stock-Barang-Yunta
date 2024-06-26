@@ -16,16 +16,16 @@ class UserController extends Controller
     {
         // Mengambil semua pengguna dengan peran (role) "staff"
         $staffUsers = User::staff()->get();
-    
+
         // Mengirimkan data pengguna (users) ke view
         return view('frontend.admin.manajemen-staff', compact('staffUsers'));
     }
-    
+
     public function tampil()
     {
         // Mengambil semua pengguna dengan peran (role) "staff"
         $staffUsers = User::staff()->get();
-    
+
         // Mengirimkan data pengguna (users) ke view
         return view('frontend.admin.tampil_staff', compact('staffUsers'));
     }
@@ -33,12 +33,12 @@ class UserController extends Controller
     {
         // Temukan data staff berdasarkan ID
         $staffUser = User::find($id);
-        
+
         // Tampilkan view untuk mengedit staff
 
         return view('frontend.admin.edit_staff', compact('staffUser'));
     }
-    
+
 
     /**
      * Memperbarui informasi staff di database.
@@ -54,7 +54,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
             'password' => 'nullable|string|min:8',
-            'role' => 'required|string|in:admin,staf', // Sesuaikan dengan peran yang diperbolehkan
+            'role' => 'required|string|in:admin,staff', // Sesuaikan dengan peran yang diperbolehkan
         ]);
 
         // Cari staff berdasarkan ID
@@ -69,19 +69,19 @@ class UserController extends Controller
         ]);
 
         // Redirect ke halaman daftar staff dengan pesan sukses
-        return redirect()->route('admin.manajemen.staff')->with('success', 'Informasi staff berhasil diperbarui.');
+        return redirect()->route('admin.manajemen.staff')->with('success', 'Staff updated successfully.');
     }
-    
+
     public function destroy($id)
     {
         // Cari user berdasarkan ID
         $user = User::findOrFail($id);
-    
+
         // Hapus user
         $user->delete();
-    
+
         // Redirect kembali dengan pesan sukses
-        return redirect()->route('admin.manajemen.staff')->with('success', ' Staff berhasil dihapus.');
+        return redirect()->route('admin.manajemen.staff')->with('success', ' Staff deleted successfully.');
     }
-    
+
 }

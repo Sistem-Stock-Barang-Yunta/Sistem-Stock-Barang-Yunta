@@ -105,37 +105,35 @@
                     <div class="card-header-action">
                         <div class="btn-group">
                             <a href="#" class="btn btn-primary">Week</a>
-                            <a href="#" class="btn">Month</a>
-                            <a href="#" class="btn">Year</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
-                    <canvas id="myChart" height="182" data-statistic="[640, 387, 530, 302, 430, 270, 700]"
-                        data-labels='["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]'></canvas>
+                    <canvas id="myChart" height="182" data-statistic="@json($stockDifference)"
+                        data-labels='@json($labels)'></canvas>
                     <div class="statistic-details mt-sm-4">
                         <div class="statistic-details-item">
                             <span class="text-muted"><span class="text-success"><i class="fas fa-caret-down"></i></span>
-                                23%</span>
-                            <div class="detail-value">100</div>
+                                UP</span>
+                            <div class="detail-value">{{ $stockInToday }}</div>
                             <div class="detail-name">Today's Stock In</div>
                         </div>
                         <div class="statistic-details-item">
                             <span class="text-muted"><span class="text-danger"><i class="fas fa-caret-up"></i></span>
-                                15%</span>
-                            <div class="detail-value">50</div>
+                                DOWN</span>
+                            <div class="detail-value">{{ $stockOutToday }}</div>
                             <div class="detail-name">Today's Stock Out</div>
                         </div>
                         <div class="statistic-details-item">
                             <span class="text-muted"><span class="text-success"><i class="fas fa-caret-down"></i></span>
-                                9%</span>
-                            <div class="detail-value">12,821</div>
+                                UP</span>
+                            <div class="detail-value">{{ $stockInThisMonth }}</div>
                             <div class="detail-name">This Month's Stock In</div>
                         </div>
                         <div class="statistic-details-item">
                             <span class="text-muted"><span class="text-danger"><i class="fas fa-caret-up"></i></span>
-                                19%</span>
-                            <div class="detail-value">92,142</div>
+                                DOWN</span>
+                            <div class="detail-value">{{ $stockOutThisMonth }}</div>
                             <div class="detail-name">This Month's Stock Out</div>
                         </div>
                     </div>

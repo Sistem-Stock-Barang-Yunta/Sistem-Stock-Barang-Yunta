@@ -28,7 +28,7 @@
 
         @if (Auth::check() && Auth::user()->role == 'admin')
             <li class="menu-header">ADMIN SECTION</li>
-            <li class="{{ Request::path() == 'manage-staff' ? 'active' : '' }}"><a class="nav-link"
+            <li class="{{ Str::startsWith(Request::path(), 'manage-staff') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin.manajemen.staff') }}"><i class="fas fa-user"></i>
                     <span>Manage Staff</span></a></li>
 

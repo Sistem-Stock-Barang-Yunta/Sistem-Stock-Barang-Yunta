@@ -28,12 +28,12 @@ class SupplierController extends Controller
 
         Supplier::create($request->only('nama_supplier', 'kontak', 'alamat'));
 
-        return redirect()->route('admin.tampil_supplier')->with('success', 'Supplier berhasil ditambahkan.');
+        return redirect()->route('admin.tampil_supplier')->with('success', 'Supplier created successfully.');
     }
 
     public function edit($id)
     {
-        $supplier = Supplier::findOrFail($id);
+        $supplier = Supplier::find($id);
         return view('frontend.admin.edit_supplier', compact('supplier'));
     }
 
@@ -48,7 +48,7 @@ class SupplierController extends Controller
         $supplier = Supplier::findOrFail($id);
         $supplier->update($request->only('nama_supplier', 'kontak', 'alamat'));
 
-        return redirect()->route('admin.tampil_supplier')->with('success', 'Supplier berhasil diperbarui.');
+        return redirect()->route('admin.tampil_supplier')->with('success', 'Supplier updated successfully.');
     }
 
     public function destroy($id)
@@ -56,7 +56,7 @@ class SupplierController extends Controller
         $supplier = Supplier::findOrFail($id);
         $supplier->delete();
 
-        return redirect()->route('admin.tampil_supplier')->with('success', 'Supplier berhasil dihapus.');
+        return redirect()->route('admin.tampil_supplier')->with('success', 'Supplier deleted successfully.');
     }
 }
 

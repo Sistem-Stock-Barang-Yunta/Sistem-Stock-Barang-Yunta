@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>register &mdash; Stisla</title>
+    <title>Register | Stock Management</title>
+
+    <link rel="shortcut icon" href="/assets/img/stock-logo.png" type="image/x-icon">
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="assets/modules/bootstrap/css/bootstrap.min.css">
@@ -39,23 +41,22 @@
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand">
-                            <img src="assets/img/stisla-fill.svg" alt="logo" width="100"
+                            <img src="assets/img/stock-logo.png" alt="logo" width="100"
                                 class="shadow-light rounded-circle">
                         </div>
 
-                        <div class="text-center"
-                            style=" /* width: 578px; */
-        color: black;
-        top: 404px;
-        /* left: 671px; */
-        
-        font-weight: ExtraBold;
-        font-size: 20px;">
-                            DAFTAR STOCK BARANG</div>
+
 
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h4>Register</h4>
+                            </div>
+                            <div class="error-field">
+                                @if ($errors->any())
+                                    @foreach ($errors->all() as $error)
+                                        <div class="alert alert-danger">{{ $error }}</div>
+                                    @endforeach
+                                @endif
                             </div>
                             @csrf
                             <div class="card-body">
@@ -97,29 +98,30 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group ">
+                                    {{-- <div class="form-group ">
                                         <label>Pilih Jenis </label>
                                         <select class="form-control selectric">
                                             <option>Admin</option>
                                             <option>Staf</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" name="remember" class="custom-control-input"
-                                                tabindex="3" id="remember-me">
-                                            <label class="custom-control-label" for="remember-me">Remember Me</label>
+                                            <input type="checkbox" name="agree-terms" class="custom-control-input"
+                                                tabindex="3" id="agree-terms">
+                                            <label class="custom-control-label" for="agree-terms">I agree with the <a
+                                                    href="/terms-condition">terms and conditions</a>.</label>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                                            Login
+                                            Register
                                         </button>
                                     </div>
                                     <div class="mt-5 text-muted text-center">
-                                        already have an account? <a href="{{ url('login') }}">Login</a>
+                                        Already have an account? <a href="{{ url('login') }}">Login</a>
 
                                     </div>
                             </div>

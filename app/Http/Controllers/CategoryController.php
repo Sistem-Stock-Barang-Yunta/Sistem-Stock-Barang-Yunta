@@ -31,7 +31,7 @@ class CategoryController extends Controller
 
     public function edit($id_kategori)
     {
-        $category = Kategori::findOrFail($id_kategori);
+        $category = Kategori::find($id_kategori);
         return view('frontend.admin.editkategori', compact('category'));
     }
 
@@ -51,13 +51,13 @@ class CategoryController extends Controller
     {
         // Cari kategori berdasarkan ID
         $category = Kategori::findOrFail($id_kategori);
-    
+
         // Hapus kategori
         $category->delete();
-    
+
         // Redirect kembali dengan pesan sukses
         return redirect()->route('admin.tampilkategori')->with('success', 'Kategori berhasil dihapus.');
     }
-    
-    
+
+
 }
