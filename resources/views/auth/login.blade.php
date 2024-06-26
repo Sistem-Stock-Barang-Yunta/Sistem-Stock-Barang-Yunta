@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Login &mdash; Stisla</title>
+    <title>Login | Stock Management</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="assets/modules/bootstrap/css/bootstrap.min.css">
@@ -45,6 +45,17 @@
                             <div class="card-header">
                                 <h4>Login</h4>
                             </div>
+                            @if (session('success'))
+                                <div class="alert alert-success">{{ session('success') }}</div>
+                            @endif
+
+                            <div class="error-field">
+                                @if ($errors->any())
+                                    @foreach ($errors->all() as $error)
+                                        <div class="alert alert-danger">{{ $error }}</div>
+                                    @endforeach
+                                @endif
+                            </div>
                             <div class="card-body">
                                 <form method="POST" action="/login" class="user" novalidate=""
                                     enctype="multipart/form-data">
@@ -66,11 +77,11 @@
                                             <div class="invalid-feedback">
                                                 please fill in your password
                                             </div>
-                                            <div class="float-right">
+                                            {{-- <div class="float-right">
                                                 <a href="auth-forgot-password.html" class="text-small">
                                                     Forgot Password?
                                                 </a>
-                                            </div>
+                                            </div> --}}
                                         </div>
 
                                     </div>
@@ -85,12 +96,12 @@
 
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block"
-                                            href="{{ 'auth.login' }} tabindex="4">
+                                            href="{{ 'auth.login' }}" tabindex="4">
                                             Login
                                         </button>
                                     </div>
                                     <div class="mt-5 text-muted text-center">
-                                        Belum punya Akun? <a href="{{ url('register') }}">Create</a>
+                                        Don't have an account? <a href="{{ url('register') }}">Create Now</a>
 
                                     </div>
                             </div>

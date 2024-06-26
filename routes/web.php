@@ -16,7 +16,9 @@ Route::get('stockout', function () {
     return view('frontend.admin.stokout');
 });
 
-
+Route::get('/terms-condition', function () {
+    return view('frontend.terms-condition');
+});
 
 
 

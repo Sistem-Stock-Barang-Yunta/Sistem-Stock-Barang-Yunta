@@ -11,7 +11,8 @@ use Illuminate\Validation\Rules\Password;
 
 class AuthController extends Controller
 {
-    public function registerForm() {
+    public function registerForm()
+    {
         return view('auth.register');
     }
 
@@ -21,21 +22,22 @@ class AuthController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Password::defaults()],
-            'role' => ['required', 'string', Rule::in(['admin', 'staf'])],
+            'agree-terms' => ['required'],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role,
+            'role' => 'staff',
         ]);
 
         Auth::login($user);
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Successfully registered!');
     }
 
-    public function loginForm() {
+    public function loginForm()
+    {
         return view('auth.login');
     }
 
@@ -45,19 +47,19 @@ class AuthController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-    
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            
+
             // Redirect semua user ke dashboard admin
             return redirect()->intended('/dashboard');
         }
-    
+
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
     }
-    
+
 
     public function logout(Request $request)
     {
