@@ -1,0 +1,126 @@
+Running 'test-admin-add-supplier'
+22:35:46
+1.
+open on / OK
+22:35:46
+2.
+setWindowSize on 1518x804 OK
+22:35:46
+3.
+click on css=li:nth-child(7) span OK
+22:35:46
+4.
+click on linkText=New Supplier OK
+22:35:47
+5.
+click on id=nama_supplier OK
+22:35:48
+6.
+type on id=nama_supplier with value Supplier 1 OK
+22:35:49
+7.
+click on id=kontak OK
+22:35:49
+8.
+type on id=kontak with value 082223127698 OK
+22:35:49
+9.
+click on id=alamat OK
+22:35:49
+10.
+type on id=alamat with value JL. 123 ABC Test OK
+22:35:49
+11.
+click on css=.btn-success OK
+22:35:49
+12.
+assertText on css=.alert with value Supplier created successfully. OK
+22:35:50
+'test-admin-add-supplier' completed successfully
+22:35:51
+Running 'test-login-admin'
+22:35:51
+1.
+open on /login OK
+22:35:51
+2.
+setWindowSize on 1518x804 OK
+22:35:51
+3.
+click on id=exampleInputEmail OK
+22:35:51
+4.
+type on id=exampleInputEmail with value admin@gmail.com OK
+22:35:52
+5.
+type on id=exampleInputPassword with value admin OK
+22:35:52
+6.
+click on css=.btn OK
+22:35:52
+7.
+assertText on css=.d-lg-inline-block with value Hi, Admin OK
+22:35:52
+'test-login-admin' completed successfully
+22:35:54
+Running 'test-login-staff'
+22:35:54
+1.
+open on / OK
+22:35:54
+2.
+click on id=exampleInputEmail OK
+22:35:54
+3.
+type on id=exampleInputEmail with value staff@gmail.com OK
+22:36:02
+4.
+type on id=exampleInputPassword with value staff OK
+22:36:02
+5.
+click on css=.btn OK
+22:36:02
+6.
+assertText on linkText=Hi, Staff with value Hi, Staff OK
+22:36:02
+'test-login-staff' completed successfully
+22:36:03
+Running 'test-staff-stock-in'
+22:36:03
+1.
+open on / OK
+22:36:03
+2.
+setWindowSize on 1936x1056 OK
+22:36:04
+3.
+click on css=.has-dropdown > span OK
+22:36:04
+4.
+click on linkText=Stock In OK
+22:36:05
+5.
+click on linkText=New Track OK
+22:36:05
+6.
+click on id=quantity OK
+22:36:06
+7.
+type on id=quantity with value 1 OK
+22:36:06
+8.
+click on id=received_at OK
+22:36:07
+9.
+click on id=received_at OK
+22:36:07
+10.
+type on id=received_at with value 2024-06-27T22:30 OK
+22:36:07
+11.
+click on css=.card-body > form OK
+22:36:07
+12.
+click on css=.btn OK
+22:36:07
+'test-staff-stock-in' completed successfully
