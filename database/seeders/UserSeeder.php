@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->createMany([
+        $users = [
             [
                 'name' => 'Admin',
                 'email' => 'admin@gmail.com',
@@ -26,6 +26,8 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('staff'),
                 'role' => 'staff'
             ]
-        ]);
+        ];
+
+        User::insert($users);
     }
 }
