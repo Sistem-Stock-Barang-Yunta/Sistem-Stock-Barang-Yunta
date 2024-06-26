@@ -53,7 +53,7 @@ class User extends Authenticatable
      */
     public function scopeStaff($query)
     {
-        return $query->where('role', 'staf');
+        return $query->where('role', 'staff');
     }
-    
+
 }

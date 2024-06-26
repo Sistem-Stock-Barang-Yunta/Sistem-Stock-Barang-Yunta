@@ -10,7 +10,14 @@
 @endsection
 
 @section('content')
-    <div class="container mt-5">
+    <div class=" mt-5">
+        <div class="alert-field">
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
@@ -39,7 +46,8 @@
                                                 class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                                <button type="submit" onclick="return confirm('Are you sure?')"
+                                                    class="btn btn-danger btn-sm">Hapus</button>
                                             </form>
                                         </td>
                                     </tr>

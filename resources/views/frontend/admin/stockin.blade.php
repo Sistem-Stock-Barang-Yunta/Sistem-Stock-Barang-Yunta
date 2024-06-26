@@ -14,7 +14,7 @@
 @endsection
 
 @section('content')
-    <div class="container mt-5">
+    <div class=" mt-5">
         <div class="row">
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
@@ -50,7 +50,8 @@
                                                 style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger">
+                                                <button type="submit" onclick="return confirm('Are you sure?')"
+                                                    class="btn btn-sm btn-danger">
                                                     <i class="fas fa-trash"></i> Hapus
                                                 </button>
                                             </form>

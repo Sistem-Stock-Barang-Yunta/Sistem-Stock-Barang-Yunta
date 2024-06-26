@@ -19,8 +19,8 @@
                         <h1>Add Item</h1>
                         <div class="row w-100 mt-5">
                             <div class="col-12 col-md-8 col-lg-6 mx-auto d-flex flex-column align-items-center">
-                                <form action="{{ route('admin.crud-tambah') }}" method="POST" enctype="multipart/form-data"
-                                    class="w-75">
+                                <form action="{{ route('admin.crud-tambah.process') }}" method="POST"
+                                    enctype="multipart/form-data" class="w-75">
                                     @csrf
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" placeholder="Item Name" name="nama"

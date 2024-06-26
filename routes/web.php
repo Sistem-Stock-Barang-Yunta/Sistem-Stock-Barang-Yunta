@@ -35,19 +35,23 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::prefix('supplier')->group(function () {
     Route::get('/', [SupplierController::class, 'index'])->name('admin.tampil_supplier');
     Route::get('/new', [SupplierController::class, 'create'])->name('admin.tambah_supplier');
-    Route::post('/new-process', [SupplierController::class, 'store']);
+    Route::post('/new-process', [SupplierController::class, 'store'])->name('admin.tambah_supplier.process');
     Route::get('/edit/{id}', [SupplierController::class, 'edit'])->name('admin.edit_supplier');
-    Route::put('/edit-process/{id}', [SupplierController::class, 'update']);
+    Route::put('/edit-process/{id}', [SupplierController::class, 'update'])->name('admin.edit_supplier.process');
     Route::delete('/delete/{id}', [SupplierController::class, 'destroy'])->name('admin.hapus_supplier');
 });
 
 
 // user
 Route::get('/admin/tampil_staff', [UserController::class, 'tampil'])->name('admin.tampil_staff');
-Route::get('/manage-staff', [UserController::class, 'index'])->name('admin.manajemen.staff');
-Route::get('/admin/edit_staff/{id}', [UserController::class, 'edit'])->name('admin.edit_staff');
-Route::put('/admin/edit_staff/{id}', [UserController::class, 'update']);
-Route::delete('/admin/delete_user/{id}', [UserController::class, 'destroy'])->name('admin.delete_user');
+
+
+Route::prefix('manage-staff')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('admin.manajemen.staff');
+    Route::get('/edit/{id}', [UserController::class, 'edit'])->name('admin.edit_staff');
+    Route::put('/edit-process/{id}', [UserController::class, 'update'])->name('admin.edit_staff.process');
+    Route::delete('/admin/delete_user/{id}', [UserController::class, 'destroy'])->name('admin.delete_user');
+});
 
 // Items & Categories
 Route::prefix('items')->group(function () {
@@ -56,7 +60,7 @@ Route::prefix('items')->group(function () {
         Route::get('/', [ItemController::class, 'item'])->name('admin.tampil_item');
         // Routes for item CRUD
         Route::get('/new', [ItemController::class, 'create'])->name('admin.crud-tambah');
-        Route::post('/new-process', [ItemController::class, 'store']);
+        Route::post('/new-process', [ItemController::class, 'store'])->name('admin.crud-tambah.process');
         Route::get('/edit/{id}', [ItemController::class, 'edit'])->name('admin.crud-edit-item');
         Route::put('/edit-process/{id}', [ItemController::class, 'update'])->name('admin.crud-update-item');
         Route::delete('/delete/{id}', [ItemController::class, 'destroy'])->name('admin.hapus-item');
@@ -66,9 +70,9 @@ Route::prefix('items')->group(function () {
     Route::prefix('manage-categories')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('admin.tampilkategori');
         Route::get('/new', [CategoryController::class, 'create'])->name('admin.crud-tambah-kategori');
-        Route::post('/new-process', [CategoryController::class, 'store']);
+        Route::post('/new-process', [CategoryController::class, 'store'])->name('admin.crud-tambah-kategori.process');
         Route::get('/edit/{id_kategori}', [CategoryController::class, 'edit'])->name('admin.crud-edit-kategori');
-        Route::put('/edit-process/{id_kategori}', [CategoryController::class, 'update']);
+        Route::put('/edit-process/{id_kategori}', [CategoryController::class, 'update'])->name('admin.crud-update-kategori.process');
         Route::delete('/delete/{id_kategori}', [CategoryController::class, 'destroy'])->name('admin.crud-delete-kategori');
     });
 });
@@ -81,7 +85,7 @@ Route::prefix('stockin')->group(function () {
     Route::get('/new', [StockInController::class, 'create'])->name('admin.tambah_stockin');
     Route::post('/new-process', [StockInController::class, 'store'])->name('admin.store_stockin');
     Route::get('/edit/{id}', [StockInController::class, 'edit'])->name('admin.edit_stockin');
-    Route::put('/edit-process/{id}', [StockInController::class, 'update']);
+    Route::put('/edit-process/{id}', [StockInController::class, 'update'])->name('admin.edit_stockin.process');
     Route::delete('/delete/{id}', [StockInController::class, 'destroy'])->name('admin.hapus_stockin');
 });
 
@@ -92,7 +96,7 @@ Route::prefix('stockout')->group(function () {
     Route::get('/new', [stockoutController::class, 'create'])->name('admin.tambah_stockout');
     Route::post('/new-process', [stockoutController::class, 'store'])->name('admin.store_stockout');
     Route::get('/edit/{id}', [stockoutController::class, 'edit'])->name('admin.edit_stockout');
-    Route::put('/edit-process/{id}', [stockoutController::class, 'update']);
+    Route::put('/edit-process/{id}', [stockoutController::class, 'update'])->name('admin.edit_stockout.process');
     Route::delete('/delete/{id}', [stockoutController::class, 'destroy'])->name('admin.hapus_stockout');
 });
 

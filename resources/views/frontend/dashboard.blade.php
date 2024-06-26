@@ -106,7 +106,7 @@
                         <div class="btn-group">
                             <a href="#" class="btn btn-primary">Week</a>
                             <a href="#" class="btn">Month</a>
-                            <a href="#" class="btn">Year</a>
+                            {{-- <a href="#" class="btn">Year</a> --}}
                         </div>
                     </div>
                 </div>

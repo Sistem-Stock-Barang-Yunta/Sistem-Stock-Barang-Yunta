@@ -53,14 +53,14 @@ class ItemController extends Controller
             'gambar' => $image,
         ]);
 
-        return redirect()->route('admin.tampil_item')->with('success', 'Item berhasil ditambahkan');
+        return redirect()->route('admin.tampil_item')->with('success', 'Successfully created!');
     }
 
 
     // Method untuk menampilkan form edit data
     public function edit($id)
     {
-        $item = Item::findOrFail($id);
+        $item = Item::find($id);
         $categories = Kategori::all();
         return view('frontend.admin.edit', compact('item', 'categories'));
     }
@@ -99,7 +99,7 @@ class ItemController extends Controller
 
         Log::info('Item updated successfully');
 
-        return redirect()->route('admin.tampil_item')->with('success', 'Item berhasil diperbarui');
+        return redirect()->route('admin.tampil_item')->with('success', 'Item updated successfully');
     }
 
     public function destroy($id)
@@ -107,7 +107,7 @@ class ItemController extends Controller
         $item = Item::findOrFail($id); // Temukan item berdasarkan ID
         $item->delete(); // Hapus item dari database
 
-        return redirect()->route('admin.tampil_item')->with('success', 'Item berhasil dihapus');
+        return redirect()->route('admin.tampil_item')->with('success', 'Item deleted successfully');
     }
 
 

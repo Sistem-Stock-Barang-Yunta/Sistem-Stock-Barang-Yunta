@@ -28,7 +28,7 @@ class DashboardController extends Controller
         $totalSuppliers = Supplier::count();
         $totalItems = Item::count();
         $totalCategories = Kategori::count();
-        $totalStaff = User::where('role', 'staf')->count();
+        $totalStaff = User::where('role', 'staff')->count();
 
         return view('frontend.dashboard', compact('totalSuppliers', 'totalItems', 'totalCategories', 'totalStaff'));
     }

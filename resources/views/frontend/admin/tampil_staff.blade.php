@@ -9,34 +9,34 @@
 @endsection
 
 @section('content')
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card border-0 shadow rounded">
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <thead>
+    {{-- <div class="container mt-5"> --}}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card border-0 shadow rounded">
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">NO</th>
+                                <th scope="col">NAMA</th>
+                                <th scope="col">JABATAN</th>
+                                <th scope="col">EMAIL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($staffUsers as $index => $user)
                                 <tr>
-                                    <th scope="col">NO</th>
-                                    <th scope="col">NAMA</th>
-                                    <th scope="col">JABATAN</th>
-                                    <th scope="col">EMAIL</th>
+                                    <th scope="row">{{ $index + 1 }}</th>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->role }}</td>
+                                    <td>{{ $user->email }}</td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($staffUsers as $index => $user)
-                                    <tr>
-                                        <th scope="row">{{ $index + 1 }}</th>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->role }}</td>
-                                        <td>{{ $user->email }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+    {{-- </div> --}}
 @endsection
