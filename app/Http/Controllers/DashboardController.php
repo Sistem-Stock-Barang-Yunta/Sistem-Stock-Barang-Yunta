@@ -15,6 +15,8 @@ class DashboardController extends Controller
 {
     public function index()
     {
+
+
         $totalSuppliers = Supplier::count();
         $totalItems = Item::count();
         $totalCategories = Kategori::count();
@@ -23,14 +25,75 @@ class DashboardController extends Controller
         return view('frontend.dashboard', compact('totalSuppliers', 'totalItems', 'totalCategories', 'totalStaff'));
     }
 
+
     public function admin()
     {
+        // Ambil data stok masuk per hari
+        $stockInData = StockIn::selectRaw('DATE(received_at) as date, SUM(quantity) as total')
+            ->whereBetween('received_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+            ->groupBy('date')
+            ->get();
+
+        // Ambil data stok keluar per hari
+        $stockOutData = StockOut::selectRaw('DATE(received_at) as date, SUM(quantity) as total')
+            ->whereBetween('received_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+            ->groupBy('date')
+            ->get();
+
+        // Siapkan data untuk chart
+        $labels = [];
+        $stockDifference = [];
+
+        // Inisialisasi label hari-hari
+        $startOfWeek = Carbon::now()->startOfWeek();
+        for ($i = 0; $i < 7; $i++) {
+            $labels[] = $startOfWeek->copy()->addDays($i)->format('l');
+        }
+
+        // Mengisi data stok masuk dan mengurangi dengan stok keluar per hari
+        foreach ($labels as $label) {
+            $date = Carbon::parse($label)->format('Y-m-d');
+            $stockInValue = $stockInData->where('date', $date)->first()->total ?? 0;
+            $stockOutValue = $stockOutData->where('date', $date)->first()->total ?? 0;
+            $stockDifference[] = $stockInValue - $stockOutValue;
+        }
+
+        // Ambil total stok masuk hari ini
+        $stockInToday = StockIn::whereDate('received_at', Carbon::today())
+            ->sum('quantity');
+
+        // Ambil total stok keluar hari ini
+        $stockOutToday = StockOut::whereDate('received_at', Carbon::today())
+            ->sum('quantity');
+
+        // Ambil total stok masuk bulan ini
+        $stockInThisMonth = StockIn::whereMonth('received_at', Carbon::now()->month)
+            ->sum('quantity');
+
+        // Ambil total stok keluar bulan ini
+        $stockOutThisMonth = StockOut::whereMonth('received_at', Carbon::now()->month)
+            ->sum('quantity');
+
         $totalSuppliers = Supplier::count();
         $totalItems = Item::count();
         $totalCategories = Kategori::count();
         $totalStaff = User::where('role', 'staff')->count();
 
-        return view('frontend.dashboard', compact('totalSuppliers', 'totalItems', 'totalCategories', 'totalStaff'));
+        return view(
+            'frontend.dashboard',
+            compact(
+                'totalSuppliers',
+                'totalItems',
+                'totalCategories',
+                'totalStaff',
+                'labels',
+                'stockDifference',
+                'stockInToday',
+                'stockOutToday',
+                'stockInThisMonth',
+                'stockOutThisMonth'
+            )
+        );
     }
 
     public function stock()
