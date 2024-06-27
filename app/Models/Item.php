@@ -13,7 +13,7 @@ class Item extends Model
 
     protected $primaryKey = 'id'; // Pastikan nama primary key sesuai
 
-    protected $fillable = ['name', 'description', 'id_kategori', 'sku', 'stock', 'gambar']; // Menambah 'description' ke dalam fillable
+    protected $fillable = ['name', 'description', 'id_kategori', 'SKU', 'stock', 'gambar']; // Menambah 'description' ke dalam fillable
 
     // Definisikan relasi dengan model Kategori
     public function kategori()

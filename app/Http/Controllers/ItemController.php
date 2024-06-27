@@ -33,7 +33,7 @@ class ItemController extends Controller
         $request->validate([
             'nama' => 'required|string|max:255',
             'id_kategori' => 'required|exists:kategori,id_kategori',
-            'sku' => 'required|string|max:255|unique:items,sku',
+            'SKU' => 'required|string|max:255|unique:items,SKU',
             'description' => 'required|string|max:255', // Menambah validasi untuk deskripsi
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
@@ -48,7 +48,7 @@ class ItemController extends Controller
         Item::create([
             'name' => $request->nama,
             'id_kategori' => $request->id_kategori,
-            'sku' => $request->sku,
+            'SKU' => $request->SKU,
             'description' => $request->description, // Menambahkan 'description'
             'gambar' => $image,
         ]);
@@ -72,7 +72,7 @@ class ItemController extends Controller
         $request->validate([
             'nama' => 'required|string|max:255',
             'id_kategori' => 'required|exists:kategori,id_kategori',
-            'sku' => 'required|string|max:255|unique:items,sku,' . $id,
+            'SKU' => 'required|string|max:255|unique:items,SKU,' . $id,
             'description' => 'nullable|string|max:255',
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
@@ -92,7 +92,7 @@ class ItemController extends Controller
 
         $item->name = $request->nama;
         $item->id_kategori = $request->id_kategori;
-        $item->sku = $request->sku;
+        $item->SKU = $request->SKU;
         $item->description = $request->description;
 
         $item->save();
