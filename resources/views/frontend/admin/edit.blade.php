@@ -53,7 +53,7 @@
                                         <div class="form-outline" data-mdb-input-init>
                                             <label class="form-label" for="form12">SKU</label>
                                             <input type="text" id="form12" class="form-control"
-                                                placeholder="Masukkan kode SKU" name="sku" value="{{ $item->sku }}">
+                                                placeholder="Masukkan kode SKU" name="SKU" value="{{ $item->SKU }}">
                                         </div>
                                         <div class="form-outline" data-mdb-input-init>
                                             <label class="form-label" for="form12">Description</label>
