@@ -69,7 +69,7 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->description }}</td>
                                         <td>{{ $item->kategori->name }}</td>
-                                        <td>{{ $item->sku }}</td>
+                                        <td>{{ $item->sku}}</td>
                                         <td><img src="{{ asset('storage/' . $item->gambar) }}"
                                                 alt="Gambar {{ $item->name }}" width="50"></td>
                                         <td>{{ $item->created_at }}</td>
